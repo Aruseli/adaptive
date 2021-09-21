@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export",
+    "export": "NODE_ENV=production next export",
     "gh-pages": "npm run build; rm -rf ./docs; npm run export -- -o docs; touch ./docs/.nojekyll; cp ./CNAME ./docs/CNAME"
   },
   "dependencies": {
