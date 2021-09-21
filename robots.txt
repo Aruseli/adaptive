@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://3000-scarlet-parrot-vx2ir9w5.ws-eu16.gitpod.io/sitemap.xml

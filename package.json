@@ -1,0 +1,29 @@
+{
+  "name": "adaptive",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export",
+    "gh-pages": "npm run build; rm -rf ./docs; npm run export -- -o docs; touch ./docs/.nojekyll; cp ./CNAME ./docs/CNAME"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "autoprefixer": "^10.3.4",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
+    "next": "11.1.2",
+    "normalize.css": "^8.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.21",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
+  }
+}
