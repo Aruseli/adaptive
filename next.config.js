@@ -3,7 +3,6 @@
 const isProd = true;
 
 module.exports = {
-  reactStrictMode: true,
-  basePath: isProd ? '/adaptive' : '',
-  assetPrefix: isProd ? 'https://cdn.statically.io/gh/Aruseli/adaptive/main/docs/' : '',
+  // reactStrictMode: true,
+  assetPrefix: isProd ? 'https://Aruseli.github.io/adaptive/' : '',
 }
