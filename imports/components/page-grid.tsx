@@ -52,20 +52,21 @@ const useStyles = makeStyles(theme => ({
 	},
 }))
 
+const isProd = process.env.NODE_ENV === 'production';
 const images = [
 	{
 		id: 'a',
-		src: '/wine.png',
+		src: `${isProd ? '/adaptive' : ''}/wine.png`,
 		alt: 'red wine',
 	},
 	{
 		id: 'b',
-		src: '/wine_n.jpeg',
+		src: `${isProd ? '/adaptive' : ''}/wine_n.jpeg`,
 		alt: 'red wine',
 	},
 	{
 		id: 'c',
-		src: '/wine_nn.jpeg',
+		src: `${isProd ? '/adaptive' : ''}/wine_nn.jpeg`,
 		alt: 'red wine',
 	}
 ]
