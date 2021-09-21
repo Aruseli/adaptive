@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const isProd = true;
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   // reactStrictMode: true,
-  assetPrefix: isProd ? 'https://Aruseli.github.io/adaptive/' : '',
+  assetPrefix: isProd ? '/adaptive/' : '',
 }
