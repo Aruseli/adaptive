@@ -42,7 +42,7 @@ export const customeTheme = createTheme({
     gray: {
       main: '#969290',
     },
-    triger: {
+    info: {
       main: '#FC6524',
     }
   }, 

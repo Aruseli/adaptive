@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     gap: '1.5rem',
   },
   bestseller: {
-    color: theme.palette.triger.main,
+    color: theme.palette.info.main,
   },
 	infoSection: {
 		// backgroundColor: '#fdff54',
