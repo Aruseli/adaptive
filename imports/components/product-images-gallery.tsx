@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import useTheme from '@material-ui/core/styles/useTheme';
+import useTheme from '@material-ui/styles/useTheme';
 import React, { useState } from 'react';
 import cn from 'classnames';
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 		minWidth: '15rem',
 		display: 'grid',
 		gridTemplateColumns: 'min-content auto',
-		gridTemplateRows: '50vh',
+		gridTemplateRows: '40vh',
 		gridColumnGap: '1rem',
 		flexDirection: 'column',
 		[theme.breakpoints.down('xs')]: {
@@ -48,8 +48,8 @@ const useStyles = makeStyles(theme => ({
 		width: '4rem',
 		height: '5rem',
 		backgroundColor: '#fff',
-    borderRadius: '25%',
-    boxShadow: '0 0 0px 1px rgb(0 0 0 / 9%), 0 0 1px 2px rgb(0 0 0 / 12%)',
+		borderRadius: '25%',
+		boxShadow: '0 0 0px 1px rgb(0 0 0 / 9%), 0 0 1px 2px rgb(0 0 0 / 12%)',
 		overflow: 'hidden',
 	},
 	'@keyframes mountImage': {
@@ -66,7 +66,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const GalleryGrid = React.memo<any>(({children}:{children: any}) => {
-	const theme = useTheme();
 	const classes = useStyles();
 	
 	return <div className={classes.galleryGrid}>
@@ -106,13 +105,12 @@ export const  ProductImagesGallery = React.memo(({
 	
 	const [activeImage, setActiveImage] = useState(0);
 	const [prevImage, setPrevImage] = useState(0);
-
-	const theme = useTheme();
-	const xsDownSize = useMediaQuery(theme.breakpoints.down('xs'));
+	
+	// const theme = useTheme();
+	// const xsDownSize = useMediaQuery(theme.breakpoints.down('xs'));
 
 	return (<GalleryGrid>
 			{images.length < 1 || <div className={classes.itemsArrangement}>{images.map((img, i) => (
-				
 				<div 
 					key={img.id} 
 					className={classes.blockAreaForSmallImages}
@@ -120,6 +118,7 @@ export const  ProductImagesGallery = React.memo(({
 						setPrevImage(activeImage);
 						setActiveImage(i);
 					}}
+					{...nonActiveImagesProps}
 				>
 					<GalleryImage 
 						src={img.src} 

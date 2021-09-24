@@ -40,15 +40,20 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	asideBlock: {
-		padding: 16,
+		// padding: 16,
 		border: '1px dashed #000',
 		[theme.breakpoints.down('sm')]: {
 			display: 'none',
 		}
 	},
 	articleBlock: {
-		// display: 'grid',
-		// gridTemplateRows: 'auto',
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 32,
+		padding: '0 1.75rem',
+		'@media(max-width: 1023px)': {
+			padding: '0 1rem',
+		}
 	},
 }))
 
@@ -83,11 +88,16 @@ export const MainGrid = React.memo<any>(({
 			<div className={classes.zoneForScroll}>
 				<main className={classes.scrollableZone}>
 					<aside className={classes.asideBlock}>
-						<CheckboxesGroup />
+						{/* <CheckboxesGroup /> */}
 					</aside>
 					<article className={classes.articleBlock}>
 						<ProductCard 
 							productImages={<ProductImagesGallery images={images} />}
+							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
+						/>
+						<ProductCard 
+							productImages={<ProductImagesGallery images={images} />}
+							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
 						/>
 					</article>
 				</main>

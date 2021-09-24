@@ -1,15 +1,20 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState, useCallback } from 'react';
 import Image from 'next/image'
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { BadgeSaleVolumeQuantity } from './badge';
+import { ExpertRating } from '../atoms/expert-rating';
+import { CustomeRating } from '../atoms/clients-rating';
+import _ from 'lodash';
+
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     width: '100%',
 		height: 'auto',
-		border: '4px dashed #da08ec',
+		border: '2px dashed #dddbd8',
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
 		gridColumnGap: 64,
@@ -24,21 +29,25 @@ const useStyles = makeStyles(theme => ({
     }
   },
   verticalSection: {
-    display: 'grid',
-    gridRowGap: 24,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.5rem',
+  },
+  bestseller: {
+    color: theme.palette.triger.main,
   },
 	infoSection: {
-		backgroundColor: '#fdff54',
-		width: '100%',
-		height: 76,
-		textAlign: 'center',
+		// backgroundColor: '#fdff54',
+		// width: '100%',
+		// height: 76,
+		// textAlign: 'center',
 	},
   originSection: {
-    color: 'white',
-    textAlign: 'center',
-    backgroundColor: '#0000ff',
-		width: '100%',
-		height: 76,
+    // color: 'white',
+    // textAlign: 'center',
+    // backgroundColor: '#0000ff',
+		// width: '100%',
+		// height: 76,
   },
 	priceSection: {
 		backgroundColor: '#4ff14f',
@@ -55,40 +64,73 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 		height: 126,
   },
-  valueSection : {
-    backgroundColor: '#bc3cf1',
-		width: '100%',
-		height: 76,
+  valueSectionBadge : {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 0.5fr)',
+    alignItems: 'center',
+    gridColumnGap: '2rem',
   },
 }))
 
-export const ProductCard = React.memo<any>(({productImages}:{productImages: React.ReactNode}) => {
+export const ProductCard = React.memo<any>(({
+  productImages,
+  title,
+  countryOrigin = 'Вкус вина щедрый, хорошо структурированный, с нотами ванили, кофе и дуба, фруктовыми акцентами и долгим, округлым послевкусием.',
+}:{
+  productImages: React.ReactNode;
+  title: string;
+  countryOrigin?: string;
+}) => {
   const classes = useStyles();
+  const [horizontalBadge, setHorizontalBadge] = useState(false);
+
+  const onClickRatingBadge = useCallback(
+    () => {
+      setHorizontalBadge(!horizontalBadge);
+      console.log({horizontalBadge});
+    },[horizontalBadge]
+  );
   
   return (<section className={classes.mainContainer}>
       <aside style={{textAlign: 'center', position: 'relative'}}>
         {productImages}
       </aside>
       <section className={classes.verticalSection}>
-        <section className={classes.infoSection}>Title</section>
-        <section className={classes.originSection}>Origin</section>
+        <section className={classes.infoSection}>
+          <Typography variant='body1' className={classes.bestseller}>Бестселлер</Typography>
+          <Typography component='div' variant='h1' color='textPrimary' align='left'>{title}</Typography>
+          <CustomeRating value={2.7} />
+        </section>
+        <section className={classes.valueSectionBadge}>
+          <ExpertRating rating={4.2} horizontalBadge={horizontalBadge} />
+          <Button variant='outlined' onClick={onClickRatingBadge}>Change badge</Button>
+        </section>
+        <section className={classes.originSection}>
+          <Typography component='div' variant='body1' align='left'>{countryOrigin}</Typography>
+        </section>
 				<Box component='div' display={{ xs: 'block', lg: 'none' }}>
           <section className={classes.priceSection}>
             <Typography component='div' variant='h4' align='center'>{Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(2500)}</Typography>
             <Button fullWidth variant='contained' color='secondary'>Buy</Button>
           </section>
 				</Box>
-        <section className={classes.ratingSection}>product's info</section>
-        <section className={classes.valueSection}>product's info</section>
-        <section className={classes.valueSection}>product's info</section>
+        {/* <section className={classes.ratingSection}>product's info</section> */}
+        <section>
+          
+          
+        </section>
+        <section>
+          <Button variant='outlined'>Развернуть</Button>
+        </section>
       </section>
-      <Box component='article' display={{ xs: 'none', lg: 'block' }}>
+      <Box component='article' display={{ xs: 'none', lg: 'block' }} position='relative'>
         <section className={classes.priceSection} style={{marginBottom: '2rem'}}>
 					<Typography component='div' variant='h4' align='center'>{Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(2500)}</Typography>
 					<Button fullWidth variant='contained' color='secondary'>Buy</Button>
         </section>
-        <section style={{backgroundColor: 'red', height: 148, width: '100%'}} />
+        {/* <section style={{backgroundColor: 'red', height: 148, width: '100%'}} /> */}
+        
       </Box>
     </section>
   );
-});
+}, _.isEquel);

@@ -7,7 +7,14 @@ const useStyles = makeStyles(theme => ({
 	badgeArea: {
 		position: 'relative',
 		width: '2rem',
-	}
+		height: '1.5rem',
+		background: '#aa00ff',
+		'&:after': {
+			content: '"/badge-edge.svg"',
+			position: 'absolute',
+			right: -20,
+		}
+	},
 }))
 
 export const BadgeSaleVolumeQuantity = React.memo(({
@@ -21,12 +28,12 @@ export const BadgeSaleVolumeQuantity = React.memo(({
 }) => {
 	const classes = useStyles();
 	return (<div className={classes.badgeArea}>
-		<Typography variant='h2' style={{zIndex: 2, color: '#fff'}}>{sale}</Typography>
-		<BadgeWithBorder 
-			fill='#ffaa12'
-			svgProps={{
-				style: {position: 'absolute', top: 0, left: 0}
-			}}
-		/>
+		<Typography variant='h2' style={{zIndex: 2, color: '#000', position: 'absolute'}}>{sale}</Typography>
+		
 	</div>)
+})
+
+export const BadgeBestSeller = React.memo(() => {
+	const classes = useStyles();
+	return <Typography variant='body1'>Бестселлер</Typography>
 })
