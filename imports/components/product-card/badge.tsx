@@ -5,7 +5,7 @@ const img = require('../../../public/badge-edge.svg')
 
 const useStyles = makeStyles(theme => ({
 	badgeArea: {
-		backgroundImage: 'url("../../../public/badge.svg")',
+		backgroundImage: 'url("../../../badge.svg")',
 		backgroundPosition: 'center',
 		backgroundSize: 'contain',
 		backgroundRepeat: 'no-repeat',
@@ -16,21 +16,6 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 	}
 }))
-
-export const BadgeSaleVolumeQuantity = React.memo(({
-	sale = 20,
-	volume,
-	quantity,
-}:{
-	sale?: any;
-	volume?: any;
-	quantity?: any;
-}) => {
-	const classes = useStyles();
-	return (<div className={classes.badgeArea}>
-		<Typography variant='h2' style={{zIndex: 2, color: '#000', position: 'absolute'}}>{sale}</Typography>
-	</div>)
-})
 
 export const BadgeBestSeller = React.memo(() => {
 	const classes = useStyles();

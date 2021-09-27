@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
 		height: '100vh',
 		maxWidth: 1472,
 		margin: '0 auto',
-		border: '2px solid #000',
 	},
 	header: {
 		width: '100%', 
@@ -40,8 +39,6 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	asideBlock: {
-		// padding: 16,
-		border: '1px dashed #000',
 		[theme.breakpoints.down('sm')]: {
 			display: 'none',
 		}
@@ -50,10 +47,6 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		gap: 32,
-		padding: '0 1.75rem',
-		'@media(max-width: 1023px)': {
-			padding: '0 1rem',
-		}
 	},
 }))
 

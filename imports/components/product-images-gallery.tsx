@@ -8,12 +8,10 @@ import cn from 'classnames';
 const useStyles = makeStyles(theme => ({
 	galleryGrid: {
 		width: '100%', 
-		minWidth: '15rem',
+		height: 'calc(100vh - 500px)',
 		display: 'grid',
 		gridTemplateColumns: 'min-content auto',
-		gridTemplateRows: '40vh',
-		gridColumnGap: '1rem',
-		flexDirection: 'column',
+		boxSizing: 'border-box',
 		[theme.breakpoints.down('xs')]: {
 			flexDirection: 'column-reverse',
 			display: 'flex',
@@ -37,7 +35,6 @@ const useStyles = makeStyles(theme => ({
 	itemsArrangement: {
 		display: 'flex',
 		flexDirection: 'column',
-		rowGap: '1rem',
 		[theme.breakpoints.down('xs')]: {
 			flexDirection: 'row',
 			columnGap: '1rem',
@@ -45,12 +42,13 @@ const useStyles = makeStyles(theme => ({
 	},
 	blockAreaForSmallImages: {
 		position: 'relative',
-		width: '4rem',
-		height: '5rem',
+		width: '3.5rem',
+		height: '3.5rem',
 		backgroundColor: '#fff',
-		borderRadius: '25%',
+		borderRadius: 8,
 		boxShadow: '0 0 0px 1px rgb(0 0 0 / 9%), 0 0 1px 2px rgb(0 0 0 / 12%)',
 		overflow: 'hidden',
+		marginBottom: 4,
 	},
 	'@keyframes mountImage': {
 		'0%': {opacity: 0},
@@ -61,7 +59,12 @@ const useStyles = makeStyles(theme => ({
 	},
 	activeImageMount: {
 		animationName: '$mountImage',
-		animation: '1s alternate slidein',
+		animation: '1s alternate slide-in',
+	},
+	smallActiveImage: {
+		border: '1px solid #F55760',
+		boxSizing: 'border-box',
+		borderRadius: 8,
 	}
 }));
 
@@ -113,7 +116,7 @@ export const  ProductImagesGallery = React.memo(({
 			{images.length < 1 || <div className={classes.itemsArrangement}>{images.map((img, i) => (
 				<div 
 					key={img.id} 
-					className={classes.blockAreaForSmallImages}
+					className={cn(classes.blockAreaForSmallImages, activeImage === i && classes.smallActiveImage)}
 					onClick={() => {
 						setPrevImage(activeImage);
 						setActiveImage(i);

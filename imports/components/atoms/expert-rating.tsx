@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
 		border: '1px solid #ceb1b1',
 		borderRadius: 25,
 		width: '2rem',
-		height: '1.75rem',
+		height: '2rem',
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',

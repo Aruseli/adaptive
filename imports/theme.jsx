@@ -1,10 +1,14 @@
 import { createTheme } from '@material-ui/core/styles';
 
 export const fontFamily = '"SF Pro Text", sans-serif';
-export const fontFamilyBold = '"SF Pro Display", sans-serif';
+export const fontFamilyDisplay = '"SF Pro Display", sans-serif';
 
 
 // 4.563rem = 73px
+// 3.75rem = 60px
+// 3.5rem = 56px
+// 3rem = 48px
+// 2.5rem = 40px
 // 2.25rem = 36px
 // 2rem = 32px
 // 1.75rem = 28px
@@ -57,33 +61,35 @@ export const customeTheme = createTheme({
       h1: {
         fontSize: '1.75rem',
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        fontFamily: fontFamilyDisplay,
         lineHeight: '2.25rem',
       },
       h2: {
         fontSize: '2rem',
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        fontFamily: fontFamilyDisplay,
       },
       h3: {
         fontSize: '1.375rem',
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        fontFamily: fontFamilyDisplay,
       },
       h4: {
         fontSize: 18,
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        fontFamily: fontFamilyDisplay,
       },
       h5: {
-        fontSize: 16,
+        fontSize: '1.25rem',
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        color: '#969290',
+        fontFamily: fontFamilyDisplay,
+        lineHeight: '1.75rem',
       },
       h6: {
         fontSize: 12,
         fontWeight: 700,
-        fontFamily: fontFamilyBold,
+        fontFamily: fontFamilyDisplay,
       },
       subtitle1: {
         fontFamily,
@@ -126,6 +132,10 @@ export const customeTheme = createTheme({
       root: {
         textTransform: 'none',
         borderRadius: '0.5rem',
+        '&$disabled': {
+          backgroundColor: '#EEECEA',
+          color: '#969290',
+        },
       },
       label: {
         fontFamily,
@@ -135,13 +145,34 @@ export const customeTheme = createTheme({
       },
       outlined: {
         border: '1px solid #dddbd8',
+        color: '#2A2425',
+        fontFamily,
+        fontSize: '1rem',
+        fontWeight: 600,
+        lineHeight: '1.5rem',
         '&:hover': {
           border: '1px solid #969290',
         },
       },
+      contained: {
+        boxShadow: 'none',
+        '&:hover': {
+          boxShadow: 'none',
+        }
+      },
       containedPrimary: {
         color: '#fff',
         backgroundColor: '#F55760',
+        '&:hover': {
+          backgroundColor: '#C44B52',
+        }
+      },
+      containedSecondary: {
+        color: '#2A2425',
+        backgroundColor: '#F9F7F4',
+        '&:hover': {
+          backgroundColor: '#EEECEA',
+        }
       },
       text: {
         fontFamily,
