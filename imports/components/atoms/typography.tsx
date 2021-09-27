@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { Typography as MUITypography } from '@material-ui/core';
 import React from 'react';
 import { fontFamilyDisplay } from '../../theme';
 
@@ -157,16 +157,18 @@ const customVariants = [
   'sale3',
   'note'];
 
-export const BrandTypography = React.memo(({
+export const Typography = React.memo(({
   customVariant, 
-  children
+  children,
+  TypographyProps,
 }:{
   customVariant?: any; 
   children: any;
+  TypographyProps?: any;
 }) => {
   const classes = useStyles();
 
-  return <Typography 
+  return <MUITypography 
     variant={customVariants.includes(customVariant) ? 'body1' : customVariant} 
     className={
       customVariant === 'priceCard'
@@ -200,5 +202,6 @@ export const BrandTypography = React.memo(({
       : customVariant === 'note'
       ? classes.note
       : null }
-    >{children}</Typography>
+      {...TypographyProps}
+    >{children}</MUITypography>
 })

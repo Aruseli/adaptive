@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/styles';
 import cn from 'classnames';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Typography } from '../atoms/typography';
 import {useSeparatorNumber} from '../number-separator';
@@ -28,7 +28,21 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const PriceCard = React.memo(({
+export const PriceCard = React.memo(() =>{
+  const classes = useStyles();
+
+  return <Box boxShadow='0px 4px 7px rgba(0, 0, 0, 0.05)' borderRadius={20} maxWidth={336} minWidth={316}>
+      <Box pt={3} px={3} pb={5} width={'100%'} display='flex' flexDirection='column'>
+        <Price price={2990} />
+        <Box display='flex' flexDirection='column'>
+          <Button variant='outlined' fullWidth className={cn(classes.marginButton, classes.buttonStyles)}>Смотреть похожие</Button>
+          <Button variant='contained' color='primary' fullWidth className={classes.buttonStyles}>Узнать о поступлении</Button>
+        </Box>
+      </Box>
+    </Box>
+})
+
+export const Price = React.memo(({
   salePrice = 1890,
   currency = '₽',
   price,
@@ -38,19 +52,11 @@ export const PriceCard = React.memo(({
   currency?: any;
   price: number;
   sale?: boolean;
-}) =>{
+}) => {
   const classes = useStyles();
-
-  return <Box boxShadow='0px 4px 7px rgba(0, 0, 0, 0.05)' borderRadius={20} maxWidth={336} minWidth={316}>
-      <Box pt={3} px={3} pb={5} width={'100%'} display='flex' flexDirection='column'>
-        <div className={classes.priceArea}>
-          <Typography customVariant='priceCard'>{useSeparatorNumber(salePrice)} {currency}</Typography>
-          {sale === true ? <Typography customVariant='h5' TypographyProps={{className: classes.priceStyle, style: {marginLeft: 12}}}>{useSeparatorNumber(price)} {currency}</Typography> : null}
-        </div>
-        <Box display='flex' flexDirection='column'>
-          <Button variant='outlined' fullWidth className={cn(classes.marginButton, classes.buttonStyles)}>Смотреть похожие</Button>
-          <Button variant='contained' color='primary' fullWidth className={classes.buttonStyles}>Узнать о поступлении</Button>
-        </Box>
-      </Box>
-    </Box>
+  return (<div className={classes.priceArea}>
+      <Typography customVariant='priceCard'>{useSeparatorNumber(salePrice)} {currency}</Typography>
+      {sale === true ? <Typography customVariant='h5' TypographyProps={{className: classes.priceStyle, style: {marginLeft: 12}}}>{useSeparatorNumber(price)} {currency}</Typography> : null}
+    </div>
+  )
 })
