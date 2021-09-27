@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { BadgeSale, BadgeSaleVolumeQuantity } from './badge';
+import { BadgeSale } from './badge';
 import { ExpertRating } from '../atoms/expert-rating';
 import { CustomeRating } from '../atoms/clients-rating';
 import _ from 'lodash';
@@ -110,7 +110,6 @@ export const ProductCard = React.memo<any>(({
             <Typography variant='body1' className={classes.bestseller}>Бестселлер</Typography>
             <Typography component='div' variant='h1' color='textPrimary' align='left'>{title}</Typography>
             <CustomeRating value={2.7} />
-            {/* <BadgeSaleVolumeQuantity /> */}
             <BadgeSale />
           </section>
           <section className={classes.valueSectionBadge}>
