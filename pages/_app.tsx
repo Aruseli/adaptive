@@ -2,9 +2,9 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import 'normalize.css';
 import { StylesProvider, createGenerateClassName, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
-import { customeTheme } from '../imports/theme';
+import { customTheme } from '../imports/theme';
 
-// const responsiveTheme = responsiveFontSizes(customeTheme);
+// const responsiveTheme = responsiveFontSizes(customTheme);
 
 const generateClassName = createGenerateClassName({
   disableGlobal: true,
@@ -14,7 +14,7 @@ const generateClassName = createGenerateClassName({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <ThemeProvider theme={customeTheme}>
+      <ThemeProvider theme={customTheme}>
         <Component {...pageProps} />
       </ThemeProvider>
     </StylesProvider>
