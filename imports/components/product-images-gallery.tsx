@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	wrapperImagesViewer: {
 		position: 'relative',
-		height: 'calc(100vh - 500px)',
+		height: 'calc(100vh - 250px)',
 	},
 	image: {
 		position: 'absolute',
