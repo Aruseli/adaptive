@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export const CustomeRating = React.memo<any>(({value, numberReviews=15}:{value: number; numberReviews?: number}) => {
+export const ClientRating = React.memo<any>(({value, numberReviews=15}:{value: number; numberReviews?: number}) => {
     const classes = useStyles();
 
     return (<div className={classes.root}>
