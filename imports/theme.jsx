@@ -23,14 +23,15 @@ export const fontFamilyDisplay = '"SF Pro Display", sans-serif';
 // 0.023rem = 0.37px
 // 0.023rem = 0.37px
 // 0.023rem = 0.37px
+// -0.025rem = -0.4px
 
-export const customeTheme = createTheme({
+export const customTheme = createTheme({
   fontFamily,
   breakpoints: {
     values: {
       xs: 0,
       sm: 600,
-      md: 960,
+      md: 1023,
       lg: 1280,
       xl: 1920,
     },

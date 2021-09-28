@@ -3,7 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { CheckboxesGroup } from './filter';
 import { ProductCard } from './product-card/product-card';
+import { ProductCardGrid } from './product-card/product-card-grid';
 import { ProductImagesGallery } from './product-images-gallery';
+import { SaleBadge } from './product-card/badge';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,14 +34,14 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: '#f5f3f3',
 		display:'grid',
 		gridTemplateColumns: 'max-content 1fr',
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			display: 'flex',
 			flexDirection: 'column',
 			flexWrap: 'wrap',
 		}
 	},
 	asideBlock: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			display: 'none',
 		}
 	},
@@ -85,13 +87,24 @@ export const MainGrid = React.memo<any>(({
 					</aside>
 					<article className={classes.articleBlock}>
 						<ProductCard 
-							productImages={<ProductImagesGallery images={images} />}
+							productImages={
+								<ProductImagesGallery 
+									images={images} 
+									saleBadge={
+										<SaleBadge SaleBadgeProps={{
+											style: {
+												position: 'absolute',
+												top: 0, right: 0,
+											}
+										}} />}
+								/>
+							}
 							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
 						/>
-						<ProductCard 
+						{/* <ProductCardGrid 
 							productImages={<ProductImagesGallery images={images} />}
 							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-						/>
+						/> */}
 					</article>
 				</main>
 			</div>

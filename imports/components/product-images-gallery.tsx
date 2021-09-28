@@ -1,14 +1,12 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import useTheme from '@material-ui/styles/useTheme';
-import React, { useState } from 'react';
 import cn from 'classnames';
+import React, { useState } from 'react';
 
 
 const useStyles = makeStyles(theme => ({
 	galleryGrid: {
 		width: '100%', 
-		height: 'calc(100vh - 500px)',
+		height: 'auto',
 		display: 'grid',
 		gridTemplateColumns: 'min-content auto',
 		boxSizing: 'border-box',
@@ -20,8 +18,9 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 	},
-	wrapperImg: {
+	wrapperImagesViewer: {
 		position: 'relative',
+		height: 'calc(100vh - 500px)',
 	},
 	image: {
 		position: 'absolute',
@@ -32,23 +31,28 @@ const useStyles = makeStyles(theme => ({
 		display: 'block',
 	},
 
-	itemsArrangement: {
+	imagesArrangement: {
 		display: 'flex',
 		flexDirection: 'column',
+		boxSizing: 'border-box',
+		marginRight: '0.75rem',
 		[theme.breakpoints.down('xs')]: {
 			flexDirection: 'row',
 			columnGap: '1rem',
 		}
 	},
-	blockAreaForSmallImages: {
+	notActiveImage: {
 		position: 'relative',
 		width: '3.5rem',
 		height: '3.5rem',
 		backgroundColor: '#fff',
 		borderRadius: 8,
-		boxShadow: '0 0 0px 1px rgb(0 0 0 / 9%), 0 0 1px 2px rgb(0 0 0 / 12%)',
 		overflow: 'hidden',
 		marginBottom: 4,
+		'&:hover': {
+			boxSizing: 'border-box',
+			border: '1px solid #FCF3ED',
+		},
 	},
 	'@keyframes mountImage': {
 		'0%': {opacity: 0},
@@ -57,11 +61,11 @@ const useStyles = makeStyles(theme => ({
 		'75%': {opacity: 0.75},
 		'100%': {opacity: 1},
 	},
-	activeImageMount: {
+	mainActiveImageMount: {
 		animationName: '$mountImage',
 		animation: '1s alternate slide-in',
 	},
-	smallActiveImage: {
+	activeImage: {
 		border: '1px solid #F55760',
 		boxSizing: 'border-box',
 		borderRadius: 8,
@@ -99,24 +103,23 @@ export const  ProductImagesGallery = React.memo(({
 		images,
 		ImageProps,
 		nonActiveImagesProps,
+		saleBadge,
 	}:{
 		images: { id: any; src: any; alt: string; }[];
 		ImageProps?: any;
 		nonActiveImagesProps?: any;
+		saleBadge?: any;
 	}) => {
 	const classes = useStyles();
 	
 	const [activeImage, setActiveImage] = useState(0);
 	const [prevImage, setPrevImage] = useState(0);
 	
-	// const theme = useTheme();
-	// const xsDownSize = useMediaQuery(theme.breakpoints.down('xs'));
-
 	return (<GalleryGrid>
-			{images.length < 1 || <div className={classes.itemsArrangement}>{images.map((img, i) => (
+			{images.length < 1 || <div className={classes.imagesArrangement}>{images.map((img, i) => (
 				<div 
 					key={img.id} 
-					className={cn(classes.blockAreaForSmallImages, activeImage === i && classes.smallActiveImage)}
+					className={cn(classes.notActiveImage, activeImage === i && classes.activeImage)}
 					onClick={() => {
 						setPrevImage(activeImage);
 						setActiveImage(i);
@@ -132,12 +135,13 @@ export const  ProductImagesGallery = React.memo(({
 				</div>
 				))}
 			</div>}
-			<div className={classes.wrapperImg}>
+			<div className={classes.wrapperImagesViewer}>
+				{saleBadge}
 				{[<GalleryImage 
 					key={activeImage} 
 					src={images[activeImage]?.src} 
 					alt={images[activeImage]?.alt} 
-					imageClasses={cn(classes.image, classes.activeImageMount)} 
+					imageClasses={cn(classes.image, classes.mainActiveImageMount)} 
 					ImageProps={ImageProps} 
 				/>]}
 			</div>

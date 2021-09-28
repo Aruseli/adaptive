@@ -9,6 +9,13 @@ import {useSeparatorNumber} from '../number-separator';
 
 
 const useStyles = makeStyles(theme => ({
+  priceCard: {
+    boxShadow: '0px 4px 7px rgba(0, 0, 0, 0.05)', 
+    borderRadius: 20,
+    width: '100%', 
+    height: 'min-content',
+    maxWidth: 336,
+  },
   priceArea: {
     display: 'flex',
     flexDirection: 'row',
@@ -31,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 export const PriceCard = React.memo(() =>{
   const classes = useStyles();
 
-  return <Box boxShadow='0px 4px 7px rgba(0, 0, 0, 0.05)' borderRadius={20} maxWidth={336} minWidth={316}>
+  return <section className={classes.priceCard}>
       <Box pt={3} px={3} pb={5} width={'100%'} display='flex' flexDirection='column'>
         <Price price={2990} />
         <Box display='flex' flexDirection='column'>
@@ -39,7 +46,7 @@ export const PriceCard = React.memo(() =>{
           <Button variant='contained' color='primary' fullWidth className={classes.buttonStyles}>Узнать о поступлении</Button>
         </Box>
       </Box>
-    </Box>
+    </section>
 })
 
 export const Price = React.memo(({
