@@ -10,6 +10,7 @@ import {useSeparatorNumber} from '../number-separator';
 
 const useStyles = makeStyles(theme => ({
   priceCard: {
+    backgroundColor: '#fff',
     boxShadow: '0px 4px 7px rgba(0, 0, 0, 0.05)', 
     borderRadius: 20,
     width: '100%', 
@@ -30,8 +31,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 8,
   },
   buttonStyles: {
-    paddingTop: 12,
-    paddingBottom: 12,
+    paddingTop: 16,
+    paddingBottom: 16,
   },
 }))
 

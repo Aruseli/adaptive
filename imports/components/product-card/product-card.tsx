@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
 		height: 'auto',
     display: 'grid',
-    gridTemplateColumns: 'minmax(231px, 1.2fr) minmax(339px, 1.5fr) minmax(316px, 1fr)',
+    gridTemplateColumns: 'minmax(231px, 1.2fr) minmax(339px, 1.3fr) minmax(316px, 1fr)',
     paddingLeft: '1.75rem',
     paddingRight: '1.75rem',
     paddingTop: '3.75rem',
@@ -46,7 +46,9 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     position: 'relative',
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
   },
   bestseller: {
     color: theme.palette.info.main,
@@ -57,13 +59,12 @@ const useStyles = makeStyles(theme => ({
 		height: 126,
   },
   expertsRatingBadge : {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 0.5fr)',
+    display: 'flex',
     alignItems: 'center',
-    gridColumnGap: '2rem',
+    justifyContent: 'space-between',
   },
   reviewText: {
-    marginBottom: '2.5rem',
+    marginBottom: '1.5rem',
   },
 }))
 
@@ -101,7 +102,6 @@ export const ProductCard = React.memo<any>(({
           </section>
           <section className={classes.expertsRatingBadge}>
             <ExpertRating rating={4.2} horizontalBadge={horizontalBadge} />
-            <Button variant='outlined' onClick={onClickRatingBadge}>Change badge</Button>
           </section>
           <section>
             <Typography component='div' variant='body1' align='left' className={classes.reviewText}>{reviewText}</Typography>
@@ -111,6 +111,7 @@ export const ProductCard = React.memo<any>(({
 
         <section className={classes.productCardPriceArea}>
           <PriceCard />
+          <Button variant='outlined' onClick={onClickRatingBadge}>Change badge</Button>
         </section>
       </section>
     </article>

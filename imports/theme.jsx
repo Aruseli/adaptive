@@ -20,7 +20,7 @@ export const fontFamilyDisplay = '"SF Pro Display", sans-serif';
 // 0.875rem = 14px
 // 0.75rem = 12px
 // 0.023rem = 0.37px
-// 0.023rem = 0.37px
+// 0.5rem = 8px
 // 0.023rem = 0.37px
 // 0.023rem = 0.37px
 // -0.025rem = -0.4px
@@ -64,6 +64,9 @@ export const customTheme = createTheme({
         fontWeight: 700,
         fontFamily: fontFamilyDisplay,
         lineHeight: '2.25rem',
+        '@media (max-width: 1199px)': {
+          fontSize: '1.5rem',
+        }
       },
       h2: {
         fontSize: '2rem',
@@ -151,6 +154,7 @@ export const customTheme = createTheme({
         fontSize: '1rem',
         fontWeight: 600,
         lineHeight: '1.5rem',
+        padding: '0.5rem 0',
         '&:hover': {
           border: '1px solid #969290',
         },

@@ -30,7 +30,7 @@ export const ClientRating = React.memo<any>(({value, numberReviews=15}:{value: n
     const classes = useStyles();
 
     return (<div className={classes.root}>
-            <Rating name="client-rating" value={value} readOnly />
+            <Rating name="client-rating" size='large' value={value} readOnly />
             <Button variant='text'>{numberReviews} отзывов</Button>
         </div>
     )
