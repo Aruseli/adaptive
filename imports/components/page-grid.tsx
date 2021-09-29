@@ -1,11 +1,7 @@
-import React, { ReactNode } from 'react';
 import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { CheckboxesGroup } from './filter';
+import React, { ReactNode } from 'react';
 import { ProductCard } from './product-card/product-card';
-import { ProductCardGrid } from './product-card/product-card-grid';
-import { ProductImagesGallery } from './product-images-gallery';
-import { SaleBadge } from './product-card/badge';
 
 
 const useStyles = makeStyles(theme => ({
@@ -34,14 +30,14 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor: '#f5f3f3',
 		display:'grid',
 		gridTemplateColumns: 'max-content 1fr',
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('sm')]: {
 			display: 'flex',
 			flexDirection: 'column',
 			flexWrap: 'wrap',
 		}
 	},
 	asideBlock: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('sm')]: {
 			display: 'none',
 		}
 	},
@@ -51,25 +47,6 @@ const useStyles = makeStyles(theme => ({
 		gap: 32,
 	},
 }))
-
-const PREFIX = process.env.NEXT_PUBLIC_GH || '';
-const images = [
-	{
-		id: 'a',
-		src: `${PREFIX}/wine.png`,
-		alt: 'red wine',
-	},
-	{
-		id: 'b',
-		src: `${PREFIX}/wine_n.jpeg`,
-		alt: 'red wine',
-	},
-	{
-		id: 'c',
-		src: `${PREFIX}/wine_nn.jpeg`,
-		alt: 'red wine',
-	}
-]
 
 export const MainGrid = React.memo<any>(({
 	header
@@ -87,18 +64,6 @@ export const MainGrid = React.memo<any>(({
 					</aside>
 					<article className={classes.articleBlock}>
 						<ProductCard 
-							productImages={
-								<ProductImagesGallery 
-									images={images} 
-									saleBadge={
-										<SaleBadge SaleBadgeProps={{
-											style: {
-												position: 'absolute',
-												top: 0, right: 0,
-											}
-										}} />}
-								/>
-							}
 							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
 						/>
 						{/* <ProductCardGrid 

@@ -3,7 +3,19 @@ import { createTheme } from '@material-ui/core/styles';
 export const fontFamily = '"SF Pro Text", sans-serif';
 export const fontFamilyDisplay = '"SF Pro Display", sans-serif';
 
+const BREAKPOINTS = {
+  xs: 0,
+  sm: 768,
+  md: 1024,
+  lg: 1472,
+  xl: 1920
+};
 
+const breakpointsValues = {
+  breakpoints: {
+    values: BREAKPOINTS
+  }
+};
 // 4.563rem = 73px
 // 3.75rem = 60px
 // 3.5rem = 56px
@@ -21,21 +33,14 @@ export const fontFamilyDisplay = '"SF Pro Display", sans-serif';
 // 0.75rem = 12px
 // 0.023rem = 0.37px
 // 0.5rem = 8px
+// 0.025rem = 0.4px
 // 0.023rem = 0.37px
-// 0.023rem = 0.37px
+// -0.023rem = -0.37px
 // -0.025rem = -0.4px
 
 export const customTheme = createTheme({
   fontFamily,
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 1023,
-      lg: 1280,
-      xl: 1920,
-    },
-  },
+  ...breakpointsValues,
   palette: {
     primary: {
       main: '#f55760',
@@ -122,6 +127,13 @@ export const customTheme = createTheme({
         lineHeight: '1rem',
         letterSpacing: '0.023rem',
       },
+      button: {
+        fontFamily,
+        fontSize: '0.75rem',
+        fontWeight: 600,
+        lineHeight: '1rem',
+        letterSpacing: '0.023rem',
+      }
 		},
     MuiRating: {
       root: {
@@ -141,12 +153,18 @@ export const customTheme = createTheme({
           color: '#969290',
         },
       },
-      label: {
-        fontFamily,
-        fontSize: '1rem',
-        fontWeight: 600,
-        lineHeight: '1.5rem',
-      },
+      // label: {
+      //   fontFamily,
+      //   fontSize: '1rem',
+      //   fontWeight: 600,
+      //   lineHeight: '1.5rem',
+      //   '@media(max-width: 1024px)': {
+      //     fontSize: '0.875rem',
+      //     fontWeight: 500,
+      //     lineHeight: '1.25rem',
+      //     letterSpacing: '-0.023rem',
+      //   }
+      // },
       outlined: {
         border: '1px solid #dddbd8',
         color: '#2A2425',
@@ -154,12 +172,20 @@ export const customTheme = createTheme({
         fontSize: '1rem',
         fontWeight: 600,
         lineHeight: '1.5rem',
-        padding: '0.5rem 0',
+        letterSpacing: '-0.023rem',
+        paddingTop: '0.5rem',
+        paddingBottom: '0.5rem',
         '&:hover': {
           border: '1px solid #969290',
         },
       },
       contained: {
+        color: '#fff',
+        fontFamily,
+        fontSize: '1rem',
+        fontWeight: 700,
+        letterSpacing: '-0.023rem',
+        lineHeight: '1.5rem',
         boxShadow: 'none',
         '&:hover': {
           boxShadow: 'none',

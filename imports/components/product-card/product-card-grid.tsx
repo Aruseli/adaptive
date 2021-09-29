@@ -1,13 +1,12 @@
-import React, { ReactNode, useMemo, useState, useCallback } from 'react';
-import Image from 'next/image'
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { SaleBadge } from './badge';
-import { ExpertRating } from '../atoms/expert-rating';
-import { ClientRating } from '../atoms/clients-rating';
+import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
+import React, { useCallback, useState } from 'react';
+import { ClientRating } from '../atoms/clients-rating';
+import { ExpertRating } from '../atoms/expert-rating';
+import { SaleBadge } from './badge';
 import { PriceCard } from './price-card';
 
 

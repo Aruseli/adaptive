@@ -10,18 +10,19 @@ const useStyles = makeStyles(theme => ({
 		display: 'grid',
 		gridTemplateColumns: 'min-content auto',
 		boxSizing: 'border-box',
-		[theme.breakpoints.down('xs')]: {
-			flexDirection: 'column-reverse',
+		[theme.breakpoints.down('sm')]: {
 			display: 'flex',
-			'& > :nth-child(2)': {
-				height: '50vh',
-			}
-		},
+			paddingTop: '3.75rem',
+    	paddingBottom: '2.5rem',
+		}
 	},
 	wrapperImagesViewer: {
 		position: 'relative',
 		height: '70vh', //'calc(100vh - 250px)',
-		maxHeight: 600
+		width: '100%',
+		[theme.breakpoints.down('sm')]: {
+			height: '40vh',
+		}
 	},
 	image: {
 		position: 'absolute',
@@ -31,16 +32,18 @@ const useStyles = makeStyles(theme => ({
 		objectFit: 'contain',
 		display: 'block',
 	},
-
 	imagesArrangement: {
 		display: 'flex',
 		flexDirection: 'column',
 		boxSizing: 'border-box',
 		marginRight: '0.75rem',
-		[theme.breakpoints.down('xs')]: {
-			flexDirection: 'row',
-			columnGap: '1rem',
-		}
+		[theme.breakpoints.down('sm')]: {
+			display: 'none',
+		},
+		// [theme.breakpoints.down('xs')]: {
+		// 	flexDirection: 'row',
+		// 	columnGap: '1rem',
+		// }
 	},
 	notActiveImage: {
 		position: 'relative',
