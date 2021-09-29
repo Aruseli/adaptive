@@ -1,7 +1,6 @@
-import { makeStyles } from '@material-ui/core';
-import { Typography as MUITypography } from '@material-ui/core';
+import { makeStyles, Typography as MUITypography } from '@material-ui/core';
 import React from 'react';
-import { fontFamilyDisplay } from '../../theme';
+import { fontFamilyDisplay, fontFamily } from '../../theme';
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,6 +47,15 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: 0,
     lineHeight: '',
     fontStyle: '',
+  },
+  button1: {
+    color: '#fff',
+    fontFamily: fontFamily,
+    fontSize: '1rem',
+    fontWeight: 700,
+    letterSpacing: '-0.023rem',
+    lineHeight: '1.5rem',
+    // extend: theme.typography.button 
   },
   button2: {
     color: '',
@@ -122,13 +130,13 @@ const useStyles = makeStyles(theme => ({
     fontStyle: 'italic',
   },
   sale3: {
-    color: '',
-    fontFamily: '',
-    fontSize: '',
+    color: '#fff',
+    fontFamily: fontFamilyDisplay,
+    fontSize: '0.875rem',
     fontWeight: 700,
-    letterSpacing: 0,
-    lineHeight: '',
-    fontStyle: '',
+    letterSpacing: '0.025rem',
+    lineHeight: '1.25rem',
+    fontStyle: 'italic',
   },
   note: {
     color: '',
@@ -146,6 +154,7 @@ const customVariants = [
   'priceCard', 
   'body3', 
   'body4', 
+  'button1',
   'button2',
   'button3',
   'caption2',
@@ -181,6 +190,8 @@ export const Typography = React.memo(({
       ? classes.body3
       : customVariant === 'body4'
       ? classes.body4
+      : customVariant === 'button1'
+      ? classes.button1
       : customVariant === 'button2'
       ? classes.button2
       : customVariant === 'button3'
