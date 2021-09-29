@@ -1,6 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import { Typography } from '../atoms/typography';
 import React from 'react';
+import { Typography } from '../atoms/typography';
+import cn from 'classnames';
+import { isSmaller1024 } from './product-card';
 
 
 const PREFIX = process.env.NEXT_PUBLIC_GH || '';
@@ -11,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 		backgroundPosition: 'center',
 		backgroundSize: 'contain',
 		backgroundRepeat: 'no-repeat',
-		width: '6vw', height: '4vh',
+		width: '6vh', height: '4vh',
 		maxWidth: 76,
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -25,11 +27,13 @@ export const BadgeBestSeller = React.memo(() => {
 	return <Typography customVariant='body1'>Бестселлер</Typography>
 })
 
-export const SaleBadge = React.memo(({SaleBadgeProps}:{SaleBadgeProps?: any;}) => {
+export const SaleBadge = React.memo(({SaleBadgeProps, saleBadgeStyle}:{SaleBadgeProps?: any; saleBadgeStyle?: any;}) => {
 	const classes = useStyles();
-	return <div className={classes.badgeArea} {...SaleBadgeProps}>
+	const smaller1024 = isSmaller1024();
+
+	return <div className={cn(classes.badgeArea, saleBadgeStyle)} {...SaleBadgeProps}>
 		<Typography 
-			customVariant='sale2' 
+			customVariant={smaller1024 === true ? 'sale3' : 'sale2' }
 			TypographyProps={{
 				component: 'div', 
 				align: 'center',
