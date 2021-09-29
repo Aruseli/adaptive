@@ -1,11 +1,10 @@
 import { Button } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/styles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import cn from 'classnames';
-import React, { ReactNode } from 'react';
-
+import React from 'react';
 import { Typography } from '../atoms/typography';
-import {useSeparatorNumber} from '../number-separator';
+import { useSeparatorNumber } from '../number-separator';
 
 
 const useStyles = makeStyles(theme => ({
@@ -16,23 +15,31 @@ const useStyles = makeStyles(theme => ({
     width: '100%', 
     height: 'min-content',
     maxWidth: 336,
+    [theme.breakpoints.down('sm')]: {
+      boxShadow: 'none', 
+      maxWidth: '100%',
+      borderRadius: 0,
+    }
   },
   priceArea: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'baseline',
-    marginBottom: 40,
+    marginBottom: '2.5rem',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '1.5rem',
+    }
   },
   priceStyle: {
     textDecoration: 'line-through',
   },
   marginButton: {
-    marginBottom: 8,
+    marginBottom: '0.5rem',
   },
   buttonStyles: {
-    paddingTop: 16,
-    paddingBottom: 16,
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
   },
 }))
 
@@ -40,7 +47,7 @@ export const PriceCard = React.memo(() =>{
   const classes = useStyles();
 
   return <section className={classes.priceCard}>
-      <Box pt={3} px={3} pb={5} width={'100%'} display='flex' flexDirection='column'>
+      <Box pt={{xs: 0, md: 3}} px={{xs: 0, md: 3}} pb={{xs: 0, md: 5}} width={'100%'} display='flex' flexDirection='column'>
         <Price price={2990} />
         <Box display='flex' flexDirection='column'>
           <Button variant='outlined' fullWidth className={cn(classes.marginButton, classes.buttonStyles)}>Смотреть похожие</Button>
