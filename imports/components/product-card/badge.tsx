@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 		backgroundPosition: 'center',
 		backgroundSize: 'contain',
 		backgroundRepeat: 'no-repeat',
-		width: '6vh', height: '4vh',
+		width: '6vh', height: '3vh',
 		maxWidth: 76,
 		display: 'flex',
 		flexWrap: 'wrap',

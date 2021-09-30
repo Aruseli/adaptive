@@ -93,8 +93,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: 0, right: 0,
     [theme.breakpoints.down('sm')]: {
-      top: 'none',
-      bottom: '-1.75rem',
+      top: 'calc(100% - 12px)',
       left: '1rem',
     }
   },
