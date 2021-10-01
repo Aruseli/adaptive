@@ -1,6 +1,9 @@
 import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import React, { ReactNode } from 'react';
+import { useStateSwitcher } from './api/use-query-store';
+import { CatalogPlaceholder } from './catalog-placeholder';
+import { CheckboxesGroup } from './filter';
 import { ProductCard } from './product-card/product-card';
 
 
@@ -41,8 +44,14 @@ const useStyles = makeStyles(theme => ({
 			display: 'none',
 		}
 	},
-	articleBlock: {
+	articleBlocCatalogArea: {
+		position: 'relative',
 		display: 'flex',
+		flexDirection: 'column',
+		gap: 32,
+	},
+	articleBlockGrid: {
+		display: 'grid',
 		flexDirection: 'column',
 		gap: 32,
 	},
@@ -54,20 +63,18 @@ export const MainGrid = React.memo<any>(({
 	header?: ReactNode;
 }) => {
 	const classes = useStyles();
-
+	const [stateSwitcher, setStateSwitcher] = useStateSwitcher();
+	
 	return (<div className={classes.page}>
 			<Paper component='header' elevation={3} className={classes.header}>{header}</Paper>
 			<div className={classes.zoneForScroll}>
 				<main className={classes.scrollableZone}>
 					<aside className={classes.asideBlock}>
-						{/* <CheckboxesGroup /> */}
+						<CheckboxesGroup />
 					</aside>
-					<article className={classes.articleBlock}>
-						<ProductCard 
-							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-						/>
-						{/* <ProductCardGrid 
-							productImages={<ProductImagesGallery images={images} />}
+					<article className={classes.articleBlocCatalogArea}>
+						<CatalogPlaceholder />
+						{/* <ProductCard 
 							title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
 						/> */}
 					</article>

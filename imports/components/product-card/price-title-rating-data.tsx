@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 		
 	}
 }))
-export const PriceTitleRating = React.memo(() => {
+export const PriceTitleRating = React.memo<any>(() => {
 	const classes = useStyles();
 
 	return (<section className={classes.dataGrid}>

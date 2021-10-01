@@ -10,9 +10,9 @@ import { ExpertRating } from '../atoms/expert-rating';
 import { ProductImagesGallery } from '../product-images-gallery';
 import { SaleBadge } from './badge';
 import { PriceCard } from './price-card';
+import { PREFIX } from '../api/env';
 
 
-const PREFIX = process.env.NEXT_PUBLIC_GH || '';
 const images = [
 	{
 		id: 'a',
@@ -135,7 +135,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ProductInfoAndPrice = React.memo(({ data }: { data: any; }) => {
+const ProductInfoAndPrice = React.memo<any>(({ data }: { data: any; }) => {
   return <>{data}</>;
 });
 

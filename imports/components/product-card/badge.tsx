@@ -3,9 +3,8 @@ import React from 'react';
 import { Typography } from '../atoms/typography';
 import cn from 'classnames';
 import { isSmaller1024 } from './product-card';
+import { PREFIX } from '../api/env';
 
-
-const PREFIX = process.env.NEXT_PUBLIC_GH || '';
 
 const useStyles = makeStyles(theme => ({
 	badgeArea: {
@@ -22,12 +21,12 @@ const useStyles = makeStyles(theme => ({
 	}
 }))
 
-export const BadgeBestSeller = React.memo(() => {
+export const BadgeBestSeller = React.memo<any>(() => {
 	const classes = useStyles();
 	return <Typography customVariant='body1'>Бестселлер</Typography>
 })
 
-export const SaleBadge = React.memo(({SaleBadgeProps, saleBadgeStyle}:{SaleBadgeProps?: any; saleBadgeStyle?: any;}) => {
+export const SaleBadge = React.memo<any>(({SaleBadgeProps, saleBadgeStyle}:{SaleBadgeProps?: any; saleBadgeStyle?: any;}) => {
 	const classes = useStyles();
 	const smaller1024 = isSmaller1024();
 

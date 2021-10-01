@@ -166,7 +166,7 @@ const customVariants = [
   'sale3',
   'note'];
 
-export const Typography = React.memo(({
+export const Typography = React.memo<any>(({
   customVariant, 
   children,
   TypographyProps,

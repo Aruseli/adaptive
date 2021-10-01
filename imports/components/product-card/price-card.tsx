@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const PriceCard = React.memo(() =>{
+export const PriceCard = React.memo<any>(() =>{
   const classes = useStyles();
 
   return <section className={classes.priceCard}>
@@ -57,7 +57,7 @@ export const PriceCard = React.memo(() =>{
     </section>
 })
 
-export const Price = React.memo(({
+export const Price = React.memo<any>(({
   salePrice = 1890,
   currency = '₽',
   price,

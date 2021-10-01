@@ -103,7 +103,7 @@ const GalleryImage = React.memo<any>(({
 		/>
 }, )
 
-export const  ProductImagesGallery = React.memo(({
+export const  ProductImagesGallery = React.memo<any>(({
 		images,
 		ImageProps,
 		nonActiveImagesProps,

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const BadgeEdge = React.memo(({
+export const BadgeEdge = React.memo<any>(({
 	fill = "#f55760",
 	svgProps,
 }:{
