@@ -11,15 +11,19 @@
     "gh-pages": "(export NEXT_PUBLIC_GH='/adaptive'; npm run build); rm -rf ./docs; npm run export -- -o docs; touch ./docs/.nojekyll; cp ./CNAME ./docs/CNAME"
   },
   "dependencies": {
+    "@deepcase/store": "0.0.33",
     "@material-ui/core": "^4.12.3",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "autoprefixer": "^10.3.4",
     "classnames": "^2.3.1",
+    "i18next": "^21.2.1",
     "lodash": "^4.17.21",
     "next": "11.1.2",
     "normalize.css": "^8.0.1",
+    "numeralize-ru": "^1.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-i18next": "^11.12.0"
   },
   "devDependencies": {
     "@types/react": "17.0.21",

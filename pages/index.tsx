@@ -1,7 +1,7 @@
 import React from 'react';
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 
-import { MainGrid } from '../imports/components/page-grid'
+import { MainGrid } from '../imports/components/page-grid';
 import Head from 'next/head';
 
 
