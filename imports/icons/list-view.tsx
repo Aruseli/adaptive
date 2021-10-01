@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const ListView = React.memo(({
+export const ListView = React.memo<any>(({
 	fill = "#f55760",
 	svgProps,
 }:{

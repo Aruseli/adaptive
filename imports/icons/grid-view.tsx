@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const GridView = React.memo(({
+export const GridView = React.memo<any>(({
 	fill = "#f55760",
 	svgProps,
 }:{
