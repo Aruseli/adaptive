@@ -27,7 +27,7 @@ export const DisplayOptionsBar = React.memo<any>(({children}:{children: any;}) =
 
   return (<>
       <HideOnScroll>
-        <AppBar classes={{root: classes.rootAppBar}}>
+        <AppBar classes={{root: classes.rootAppBar}} position='sticky'>
           <Toolbar>
             {children}
           </Toolbar>
