@@ -51,6 +51,7 @@ export const customTheme = createTheme({
     },
     gray: {
       main: '#969290',
+      light: '#F9F7F4',
     },
     info: {
       main: '#FC6524',
@@ -153,18 +154,6 @@ export const customTheme = createTheme({
           color: '#969290',
         },
       },
-      // label: {
-      //   fontFamily,
-      //   fontSize: '1rem',
-      //   fontWeight: 600,
-      //   lineHeight: '1.5rem',
-      //   '@media(max-width: 1024px)': {
-      //     fontSize: '0.875rem',
-      //     fontWeight: 500,
-      //     lineHeight: '1.25rem',
-      //     letterSpacing: '-0.023rem',
-      //   }
-      // },
       outlined: {
         border: '1px solid #dddbd8',
         color: '#2A2425',
@@ -214,6 +203,20 @@ export const customTheme = createTheme({
         letterSpacing: '0.023rem',
         color: '#3779C6',
         textDecoration: 'underline',
+      }
+    },
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: 8,
+      }
+    },
+    MuiChip: {
+      deletableColorPrimary: {
+        backgroundColor: '#F9F7F4',
+        color: '#2A2425',
+      },
+      deleteIconColorPrimary: {
+        color: '#AFACA9',
       }
     }
 	}
