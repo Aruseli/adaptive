@@ -1,32 +1,57 @@
-import Select from '@material-ui/core/Select';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useStateSelectOptions } from '../api/use-query-store';
+import { FilterSelectedOptionChip } from '../atoms/filters-selected-option-chip';
 import { OptionsSelector } from '../atoms/options-selector';
+import { CatalogViewVariants } from '../catalog-view-variants';
+
 
 
 const useStyles = makeStyles(theme => ({
   displayOptionsBarArea: {
     display: 'flex',
     flexDirection: 'column',
+    gap: 24,
     backgroundColor: '#fff',
   },
-  sectionSelectedFiltersOptions: {
+  selectedFiltersOptionsAndViewArea: {
     display: 'grid',
     gridTemplateColumns: '1fr 0.1fr',
+  },
+  selectedFiltersOptionsChips: {
+    display: 'grid',
+    gridColumnGap: 8,
+    gridTemplateColumns: 'repeat( auto-fit, minmax(80px, 0.08fr) )',
+    alignContent: 'center',
   }
 }));
 
-export const AppBarDisplayOptionsBar = React.memo<any>(({children}:{children: any;}) => {
+export const AppBarDisplayOptionsBar = React.memo<any>(({
+  children,
+  selectedFilterOptions,
+}:{
+  children: any;
+  selectedFilterOptions?: {
+    id: string;
+    title: string;
+  }[];
+}) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
+  const handleDelete = useCallback((id) => {
+    alert('delete '+id);
+  }, []);
+
   return (<nav className={classes.displayOptionsBarArea}>
       <OptionsSelector />
-      <div className={classes.sectionSelectedFiltersOptions}>
-
+      <div className={classes.selectedFiltersOptionsAndViewArea}>
+        <div className={classes.selectedFiltersOptionsChips}>
+          {selectedFilterOptions.map(chip => (
+            <FilterSelectedOptionChip key={chip.id} id={chip.id} title={chip.title} handleDelete={handleDelete} />
+          ))}
+        </div>
+        <CatalogViewVariants />
       </div>
     </nav>
   );

@@ -1,7 +1,7 @@
 import Select from '@material-ui/core/Select';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../i18n';
 import { useStateSelectOptions } from '../api/use-query-store';
 
 import { OPERATION_SYSTEM } from '../api/env';
