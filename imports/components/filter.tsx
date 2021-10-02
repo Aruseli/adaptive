@@ -1,32 +1,37 @@
-import React from 'react';
+import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {FormLabel, FormControl, FormGroup, FormControlLabel, FormHelperText, Checkbox} from '@material-ui/core';
+import React, { useCallback, useState } from 'react';
 
+export const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-	display: 'flex',
+		display: 'flex',
+		width: drawerWidth,
+    flexShrink: 0,
   },
   formControl: {
-	margin: theme.spacing(3),
+		margin: theme.spacing(3),
   },
 }));
 
 export const CheckboxesGroup = React.memo<any>(() => {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-	white: true,
-	red: false,
-	pink: false,
+  const [state, setState] = useState({
+		white: true,
+		red: false,
+		pink: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = useCallback((event) => {
 	setState({ ...state, [event.target.name]: event.target.checked });
-  };
+  }, [state]);
 
   const { white, red, pink } = state;
 
-  return (<div className={classes.root}>
+  return (<div 
+			className={classes.root}
+		>
 			<FormControl component="fieldset" className={classes.formControl}>
 				<FormLabel component="legend">Фильтр</FormLabel>
 				<FormGroup>
