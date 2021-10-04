@@ -1,1 +1,9 @@
-<svg id="badge" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 76 32" width="76px" height="32px" xml:space="preserve"><defs><style>.cls-1{fill:url(#linear-gradient);}</style><linearGradient id="linear-gradient" y1="16" x2="76" y2="16" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d23334"/><stop offset="1" stop-color="#d85762"/></linearGradient></defs><path class="cls-1" d="M0,4.1A4.09,4.09,0,0,1,4.1,0H72.41A3.59,3.59,0,0,1,76,3.59V5L69.31,29.18A3.83,3.83,0,0,1,65.61,32H3.75A3.75,3.75,0,0,1,0,28.25Z" transform="translate(0)"/></svg>
+<svg width="55" height="24" viewBox="0 0 55 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 4C0 1.79086 1.79086 0 4 0H50.8769C53.4792 0 55.3886 2.44556 54.7575 4.97014L50.7575 20.9701C50.3123 22.7508 48.7124 24 46.8769 24H4C1.79086 24 0 22.2091 0 20V4Z" fill="url(#paint0_linear)"/>
+<defs>
+<linearGradient id="paint0_linear" x1="-1.56601e-06" y1="24" x2="47.048" y2="-4.15356" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF2525"/>
+<stop offset="0.749744" stop-color="#F55760"/>
+</linearGradient>
+</defs>
+</svg>
