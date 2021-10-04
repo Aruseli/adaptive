@@ -1,6 +1,6 @@
 import { useQueryStore } from '@deepcase/store/query';
 
-export function useStateSwitcher() {
+export function useStateSwitcherCatalogView() {
   return useQueryStore('catalog', 'list');
 };
 
