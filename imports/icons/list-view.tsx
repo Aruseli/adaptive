@@ -4,7 +4,7 @@ export const ListView = React.memo<any>(({
 	fill = "#f55760",
 	svgProps,
 }:{
-	fill?: any;
+	fill?: string;
 	svgProps?: any;
 	}) => {
   return (

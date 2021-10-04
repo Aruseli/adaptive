@@ -14,7 +14,7 @@ export const GridView = React.memo<any>(({
 	  viewBox="0 0 20 20"
 		fill="none"
 		width={20}
-		height={19}
+		height={20}
 	  {...svgProps}
 	>
 	 <path

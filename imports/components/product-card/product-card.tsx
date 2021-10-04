@@ -11,6 +11,7 @@ import { ProductImagesGallery } from '../product-images-gallery';
 import { SaleBadge } from './badge';
 import { PriceCard } from './price-card';
 import { PREFIX } from '../api/env';
+import cn from 'classnames';
 
 
 const images = [
@@ -36,8 +37,11 @@ export function isSmaller1024() {
 }
 
 const useStyles = makeStyles(theme => ({
-  productCardMainContainer: {
+  productCardMainContainerNude: {
     backgroundColor: '#F9F5F3',
+  },
+  productCardMainContainerWhite: {
+    backgroundColor: '#FFF',
   },
   productCardGridContainer: {
     width: '100%',
@@ -142,14 +146,16 @@ const ProductInfoAndPrice = React.memo<any>(({ data }: { data: any; }) => {
 export const ProductCard = React.memo<any>(({
   title,
   reviewText = 'Вкус вина щедрый, хорошо структурированный, с нотами ванили, кофе и дуба, фруктовыми акцентами и долгим, округлым послевкусием.',
+  backgroundColorSwitch = false,
 }:{
   title: string;
   reviewText?: string;
+  backgroundColorSwitch?: boolean;
 }) => {
   const classes = useStyles();
   const smaller1024 = isSmaller1024();
   
-  return (<article className={classes.productCardMainContainer}>
+  return (<article className={backgroundColorSwitch ? classes.productCardMainContainerNude : classes.productCardMainContainerWhite}>
         <section className={classes.productCardGridContainer}>
 
         <aside className={classes.productCardGalleryArea}>
