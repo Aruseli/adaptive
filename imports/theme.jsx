@@ -201,8 +201,7 @@ export const customTheme = createTheme({
         fontStyle: 'normal',
         lineHeight: '1.25rem',
         letterSpacing: '0.023rem',
-        color: '#3779C6',
-        textDecoration: 'underline',
+        color: '#969290',
       }
     },
     MuiOutlinedInput: {
