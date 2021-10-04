@@ -8,6 +8,7 @@ const resources = {
   ru: { 
     translation: {
       'catalog-view-variants': 'Вид',
+      
       'select--popular': 'Популярные',
       'select--ascending price': 'По возрастанию цены',
       'select--descending price': 'По убыванию цены ',
@@ -17,9 +18,21 @@ const resources = {
       'select--discount': 'По скидке',
       'select--vintage from old to new': 'Винтаж от старого к новому',
       'select--vintage from new to old': 'Винтаж от нового к старому',
-      "-of-review-1": "отзыв",
-      "-of-review-2": "отзыва",
-      "-of-review-5": "отзывов",
+      
+      'navigation--geolocation': 'геолокация',
+      'navigation--wedding': 'Свадьба и банкет',
+      'navigation--for-business': 'Для бизнеса',
+      'navigation--order-status': 'Статус заказа',
+      'navigation--shops': 'Магазины',
+      'navigation--help-consulting': 'Помощь и консультация',
+      'navigation--switch-site-to': 'Переключить сайт на {{language}}',
+      'navigation--catalog': 'Каталог',
+      'navigation--search-icon': 'Поиск',
+      'navigation--search-input': 'Поиск по сайту',
+
+      '-of-review-1': 'отзыв',
+      '-of-review-2': 'отзыва',
+      '-of-review-5': 'отзывов',
     }
   }
 };
