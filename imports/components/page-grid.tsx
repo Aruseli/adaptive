@@ -29,6 +29,11 @@ const useStyles = makeStyles(theme => ({
 		position: 'sticky',
 		top: 0,
 		zIndex: 2,
+		padding: '12px 0',
+	},
+	mainContentArea: {
+		position: 'relative',
+		width: '100%',
 	},
 }))
 
@@ -41,7 +46,7 @@ export const MainGrid = React.memo<any>(() => {
 			<Paper component='header' elevation={0} className={classes.header}><Navigation /></Paper>
 			<main className={classes.mainPageArea}>
 				<CheckboxesGroup />
-				<main>
+				<main className={classes.mainContentArea }>
 					<CatalogPlaceholder />
 				</main>
 			</main>

@@ -5,7 +5,6 @@ import { fontFamilyDisplay, fontFamily } from '../../theme';
 
 const useStyles = makeStyles(theme => ({
   rating: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -14,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   banner: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -31,7 +29,6 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '2.25rem',
   },
   body3: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -40,7 +37,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   body4: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -58,16 +54,14 @@ const useStyles = makeStyles(theme => ({
     // extend: theme.typography.button 
   },
   button2: {
-    color: '',
-    fontFamily: '',
-    fontSize: '',
+    color: '#fff',
+    fontFamily: fontFamily,
+    fontSize: '0.875rem',
     fontWeight: 700,
-    letterSpacing: 0,
-    lineHeight: '',
-    fontStyle: '',
+    letterSpacing: '-0.023rem',
+    lineHeight: '1.25rem',
   },
   button3: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -76,7 +70,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   caption2: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -85,7 +78,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   caption3: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -94,7 +86,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   caption4: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -103,7 +94,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   link2: {
-    color: '',
     fontFamily: '',
     fontSize: '',
     fontWeight: 700,
@@ -112,13 +102,13 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   sale: {
-    color: '',
-    fontFamily: '',
-    fontSize: '',
+    color: '#fff',
+    fontFamily: fontFamilyDisplay,
+    fontSize: '1rem',
     fontWeight: 700,
     letterSpacing: 0,
-    lineHeight: '',
-    fontStyle: '',
+    lineHeight: '1.5rem',
+    fontStyle: 'italic',
   },
   sale2: {
     color: '#fff',
@@ -139,7 +129,6 @@ const useStyles = makeStyles(theme => ({
     fontStyle: 'italic',
   },
   note: {
-    color: '',
     fontFamily: '',
     fontSize: '0.75rem',
     fontWeight: 500,

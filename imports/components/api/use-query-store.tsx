@@ -9,7 +9,10 @@ export function useStateDrawerFilter() {
 };
 
 export function useStateSelectOptions() {
-  return useQueryStore('select-option', 'popular');
-   
+  return useQueryStore('select-option', 'popular');  
+};
+
+export function useTabsMenuSectionsNavigation() {
+  return useQueryStore('menu-item', 'promotion');
 };
 

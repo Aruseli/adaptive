@@ -5,6 +5,7 @@ import React, { useMemo } from 'react';
 import { useStateSwitcherCatalogView } from './api/use-query-store';
 import { AppBarDisplayOptionsBar } from './header/app-bar-display-options';
 import { ProductCard } from './product-card/product-card';
+import { ProductSnippet } from './product-snippet/product-snippet';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +19,10 @@ const useStyles = makeStyles(theme => ({
   },
   catalogGridView: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, minmax(20vw, 1fr))',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridAutoRows: 'minmax(auto, 648px)',
+    columnGap: '1vw',
+    rowGap: '1vh',
   },
 })) 
 
@@ -36,7 +40,7 @@ export const CatalogPlaceholder = React.memo<any>(() => {
     }
   ]
 
-  const CardComponent = stateSwitcher === 'list' ? ProductCard : ProductCard;
+  const CardComponent = stateSwitcher === 'list' ? ProductCard : ProductSnippet;
 
   return (<><AppBarDisplayOptionsBar selectedFilterOptions={chips}/>
       <Box component='section' className={stateSwitcher === 'list' ? classes.catalogListView : classes.catalogGridView}>

@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   selectedFiltersOptionsChips: {
     display: 'grid',
     gridColumnGap: 8,
-    gridTemplateColumns: 'repeat( auto-fit, minmax(80px, 0.08fr) )',
+    gridTemplateColumns: 'repeat( auto-fit, minmax(112px, 0.08fr) )',
     alignContent: 'center',
   }
 }));

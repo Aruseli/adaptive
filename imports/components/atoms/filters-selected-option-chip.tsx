@@ -1,7 +1,6 @@
 import Chip from '@material-ui/core/Chip';
 import React, { useCallback } from 'react';
 
-
 export const FilterSelectedOptionChip = React.memo<any>(({
   id,
   title,

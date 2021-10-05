@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	wrapperImagesViewer: {
 		position: 'relative',
-		height: '70vh', //'calc(100vh - 250px)',
+		maxHeight: '60vh', //'calc(100vh - 250px)',
 		width: '100%',
 		[theme.breakpoints.down('sm')]: {
 			height: '40vh',

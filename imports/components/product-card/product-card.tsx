@@ -1,22 +1,26 @@
 import { useMediaQuery } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useTranslation } from '../../i18n';
+import { PREFIX } from '../api/env';
+import { SaleBadge } from '../atoms/badge';
 import { ClientRating } from '../atoms/clients-rating';
 import { ExpertRating } from '../atoms/expert-rating';
 import { ProductImagesGallery } from '../product-images-gallery';
-import { SaleBadge } from './badge';
 import { PriceCard } from './price-card';
-import { PREFIX } from '../api/env';
-import cn from 'classnames';
 
 
 const images = [
-	{
+  {
 		id: 'a',
+		src: `${PREFIX}/bottle.png`,
+		alt: 'red wine',
+	},
+	{
+		id: 'd',
 		src: `${PREFIX}/wine.png`,
 		alt: 'red wine',
 	},
@@ -96,6 +100,7 @@ const useStyles = makeStyles(theme => ({
   productCardSaleBadgePositioning: {
     position: 'absolute',
     top: 0, right: 0,
+    zIndex: 1,
     [theme.breakpoints.down('sm')]: {
       top: 'calc(100% - 12px)',
       left: '1rem',
@@ -154,6 +159,7 @@ export const ProductCard = React.memo<any>(({
 }) => {
   const classes = useStyles();
   const smaller1024 = isSmaller1024();
+  const { t } = useTranslation();
   
   return (<article className={backgroundColorSwitch ? classes.productCardMainContainerNude : classes.productCardMainContainerWhite}>
         <section className={classes.productCardGridContainer}>
@@ -169,7 +175,7 @@ export const ProductCard = React.memo<any>(({
         <ProductInfoAndPrice data={<>
           <section className={classes.productCardInfoArea}>
             <section className={classes.productCardInfo}>
-              <Typography variant='body1' className={classes.bestseller}>Бестселлер</Typography>
+              <Typography variant='body1' className={classes.bestseller}>{t('best-seller')}</Typography>
               <Typography component='div' variant='h1' color='textPrimary' align='left'>{title}</Typography>
               <ClientRating value={2.7} />
              {smaller1024 && <PriceCard />}

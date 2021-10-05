@@ -6,7 +6,7 @@ import _ from 'lodash';
 import React, { useCallback, useState } from 'react';
 import { ClientRating } from '../atoms/clients-rating';
 import { ExpertRating } from '../atoms/expert-rating';
-import { SaleBadge } from './badge';
+import { SaleBadge } from '../atoms/badge';
 import { PriceCard } from './price-card';
 
 
