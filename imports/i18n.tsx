@@ -29,10 +29,27 @@ const resources = {
       'navigation--catalog': 'Каталог',
       'navigation--search-icon': 'Поиск',
       'navigation--search-input': 'Поиск по сайту',
+      'navigation--menu-items': 'Пункты меню',
+      'navigation--menu-item-promotion': 'Акции',
+      'navigation--menu-item-wine': 'Вино',
+      'navigation--menu-item-champagne': 'Шампанское',
+      'navigation--menu-item-whiskey': 'Виски',
+      'navigation--menu-item-beer-cider': 'Пиво и сидр',
+      'navigation--menu-item-water-juices': 'Вода и соки',
+      'navigation--menu-item-delicacies': 'Деликатесы',
+      'navigation--menu-item-sets-gifts': 'Наборы и подарки',
+      'navigation--menu-item-dishes-accessories': 'Посуда и аксессуары',
+      'navigation--login': 'Войти',
+      'navigation--favorites': 'Избранное',
+      'navigation--bin': 'Корзина',
 
       '-of-review-1': 'отзыв',
       '-of-review-2': 'отзыва',
       '-of-review-5': 'отзывов',
+
+      'liter': 'л',
+      'best-seller': 'Бестселлер',
+      'price-unit': 'шт',
     }
   }
 };

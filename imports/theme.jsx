@@ -59,6 +59,9 @@ export const customTheme = createTheme({
   }, 
   overrides: {
     MuiTypography: {
+      primary: {
+        color: '#FF2525',
+      },
       colorTextPrimary: {
         color: '#2A2425',
       },
@@ -92,7 +95,6 @@ export const customTheme = createTheme({
       h5: {
         fontSize: '1.25rem',
         fontWeight: 700,
-        color: '#969290',
         fontFamily: fontFamilyDisplay,
         lineHeight: '1.75rem',
       },
@@ -217,7 +219,12 @@ export const customTheme = createTheme({
       deleteIconColorPrimary: {
         color: '#AFACA9',
       }
-    }
+    },
+    MuiTab: {
+      root: {
+        minWidth: '0 !important',
+      },
+    },
 	}
 });
 

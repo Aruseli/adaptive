@@ -1,10 +1,13 @@
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import ListItem from '@material-ui/core/ListItem';
 import Box from '@material-ui/core/Box';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import cn from 'classnames';
 import React from 'react';
+import { useTranslation } from '../../i18n';
 import { Typography } from '../atoms/typography';
 import { useSeparatorNumber } from '../number-separator';
+import { ListItemText } from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -60,18 +63,62 @@ export const PriceCard = React.memo<any>(() =>{
 export const Price = React.memo<any>(({
   salePrice = 1890,
   currency = '₽',
-  price,
+  price = 2990,
   sale = true,
+  unitPrice = 49,
+  color,
 }:{
   salePrice?: number;
   currency?: any;
   price: number;
   sale?: boolean;
+  unitPrice?: number;
+  color?: string;
 }) => {
   const classes = useStyles();
+
   return (<div className={classes.priceArea}>
-      <Typography customVariant='priceCard'>{useSeparatorNumber(salePrice)} {currency}</Typography>
+      <Typography 
+        customVariant='priceCard' 
+        color={color}>{useSeparatorNumber(salePrice)} {currency}</Typography>
       {sale === true ? <Typography customVariant='h5' TypographyProps={{className: classes.priceStyle, style: {marginLeft: 12}}}>{useSeparatorNumber(price)} {currency}</Typography> : null}
     </div>
+  )
+})
+
+export const PriceForList = React.memo<any>(({
+  salePrice = 1890,
+  currency = '₽',
+  price = 2990,
+  sale = true,
+  unitPrice = 49,
+  color,
+  customVariantTypographySale = 'priceCard',
+  customVariantTypographyPrice = 'h5',
+}:{
+  salePrice?: number;
+  currency?: any;
+  price: number;
+  sale?: boolean;
+  unitPrice?: number;
+  color?: string;
+  customVariantTypographySale?: string;
+  customVariantTypographyPrice?: string;
+}) => {
+  const classes = useStyles();
+  const { t } = useTranslation();
+
+  return (<ListItem>
+      <ListItemText 
+        primary={<div className={classes.priceArea}>
+          <Typography 
+            customVariant={customVariantTypographySale} 
+            color={color}
+          >{useSeparatorNumber(salePrice)} {currency}</Typography>
+          {sale === true ? <Typography customVariant={customVariantTypographyPrice} TypographyProps={{className: classes.priceStyle, style: {marginLeft: 12}}}>{useSeparatorNumber(price)} {currency}</Typography> : null}
+        </div>}
+        secondary={!!unitPrice && <Typography customVariant='body2' color='primary'>{unitPrice} / {t('price-unit')}</Typography>}
+      />
+    </ListItem>
   )
 })
