@@ -1,4 +1,6 @@
-import { makeStyles, Typography as MUITypography } from '@material-ui/core';
+import { Typography as MUITypography } from '@material-ui/core';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import cn from 'classnames';
 import React from 'react';
 import { fontFamilyDisplay, fontFamily } from '../../theme';
 
@@ -21,20 +23,19 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   priceCard: {
-    color: '#6D6865',
+    color: '#FF2525',
     fontFamily: fontFamilyDisplay,
-    fontSize: '2rem',
+    fontSize: 'calc((112.5% + 2vw) / 2)', //'2rem',
     fontWeight: 900,
     letterSpacing: 0,
     lineHeight: '2.25rem',
   },
   body3: {
-    fontFamily: '',
-    fontSize: '',
-    fontWeight: 700,
-    letterSpacing: 0,
-    lineHeight: '',
-    fontStyle: '',
+    fontFamily: fontFamily,
+    fontSize: 'calc((112.5% + 1vw) / 2)',
+    fontWeight: 500,
+    letterSpacing: '-0.023rem',
+    lineHeight: '1.25rem',
   },
   body4: {
     fontFamily: '',
@@ -51,7 +52,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     letterSpacing: '-0.023rem',
     lineHeight: '1.5rem',
-    // extend: theme.typography.button 
   },
   button2: {
     color: '#fff',
@@ -69,13 +69,12 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '',
     fontStyle: '',
   },
-  caption2: {
-    fontFamily: '',
-    fontSize: '',
-    fontWeight: 700,
-    letterSpacing: 0,
-    lineHeight: '',
-    fontStyle: '',
+  subtitle: {
+    fontFamily: fontFamily,
+    color: '#969290',
+    fontSize: '1rem', //'calc((112.5% + 0.5vw) / 2)',
+    fontWeight: 500,
+    letterSpacing: '-0.023rem',
   },
   caption3: {
     fontFamily: '',
@@ -102,21 +101,20 @@ const useStyles = makeStyles(theme => ({
     fontStyle: '',
   },
   sale: {
-    color: '#fff',
+    color: '#969290',
+    textDecoration: 'line-through',
     fontFamily: fontFamilyDisplay,
-    fontSize: '1rem',
+    fontSize: 'calc((112.5% + 1vw) / 2)',
     fontWeight: 700,
     letterSpacing: 0,
     lineHeight: '1.5rem',
-    fontStyle: 'italic',
   },
   sale2: {
     color: '#fff',
     fontFamily: fontFamilyDisplay,
-    fontSize: '1.5rem',
+    fontSize: '1.2rem',
     fontWeight: 700,
     letterSpacing: '-0.025rem',
-    lineHeight: '1.75rem',
     fontStyle: 'italic',
   },
   sale3: {
@@ -146,7 +144,7 @@ const customVariants = [
   'button1',
   'button2',
   'button3',
-  'caption2',
+  'subtitle',
   'caption3',
   'caption4',
   'link2',
@@ -158,17 +156,22 @@ const customVariants = [
 export const Typography = React.memo<any>(({
   customVariant, 
   children,
+  color,
   TypographyProps,
+  additionalClasses,
 }:{
   customVariant?: any; 
   children: any;
+  color?: string;
   TypographyProps?: any;
+  additionalClasses?: any;
 }) => {
   const classes = useStyles();
 
   return <MUITypography 
     variant={customVariants.includes(customVariant) ? 'body1' : customVariant} 
-    className={
+    color={color}
+    className={cn(
       customVariant === 'priceCard'
       ? classes.priceCard
       : customVariant === 'rating'
@@ -185,8 +188,8 @@ export const Typography = React.memo<any>(({
       ? classes.button2
       : customVariant === 'button3'
       ? classes.button3
-      : customVariant === 'caption2'
-      ? classes.caption2
+      : customVariant === 'subtitle'
+      ? classes.subtitle
       : customVariant === 'caption3'
       ? classes.caption3
       : customVariant === 'caption4'
@@ -201,7 +204,7 @@ export const Typography = React.memo<any>(({
       ? classes.sale3
       : customVariant === 'note'
       ? classes.note
-      : null }
+      : null, additionalClasses )}
       {...TypographyProps}
     >{children}</MUITypography>
 })

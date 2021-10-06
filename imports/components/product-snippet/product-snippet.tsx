@@ -1,4 +1,6 @@
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
@@ -9,7 +11,10 @@ import { PREFIX } from '../api/env';
 import { SaleBadge } from '../atoms/badge';
 import { ExpertRating } from '../atoms/expert-rating';
 import { Typography } from '../atoms/typography';
-import { Price, PriceForList } from '../product-card/price-card';
+import { PriceForList } from '../product-card/price-card';
+import { DrinkDescription } from '../atoms/drink-description';
+import { ClientRating } from '../atoms/clients-rating';
+import { Displacement } from '../atoms/displacement';
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   imageProductSnippetArea: {
-    position: 'absolute',
+    position: 'relative',
     top: 0, left: 0,
     width: '100%',
     display: 'flex',
@@ -42,6 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   imgBox: {
     paddingBottom: 12,
+    position: 'relative',
   },
   imgStyle: {
     display: 'block',
@@ -58,9 +64,32 @@ const useStyles = makeStyles(theme => ({
 export const ProductSnippet = React.memo<any>(({
   src = `${PREFIX}/bottle.png`,
   alt,
+  title,
+  country,
+  region,
+  zone,
+  wineColor,
+  degreeOfSweetness,
+  grapeSort,
+  valueClientRating,
+  numberClientReviews,
+  displacements,
 }:{
   src?: string;
   alt?: string;
+  title: string;
+  country?: string;
+  region?: string;
+  zone?: string;
+  wineColor?: string;
+  degreeOfSweetness?: string;
+  grapeSort?: string;
+  valueClientRating?: number;
+  numberClientReviews?: number;
+  displacements?: {
+    id: string;
+    displacement: number;
+  }[];
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
@@ -76,11 +105,32 @@ export const ProductSnippet = React.memo<any>(({
     </div>
       <List className={classes.infoProductSnippetArea}>
         <PriceForList 
-          customVariantTypographySale='h5' 
-          customVariantTypographyPrice='body2'
-          color='primary' 
+          customVariantTypographySale='priceCard' 
+          customVariantTypographyPrice='sale'
+          unitPrice={49} 
         />
-        <Typography customVariant='body1' className={classes.bestseller}>{t('best-seller')}</Typography>
+        <ListItem disableGutters>
+          <ListItemText primary={<Typography customVariant='subtitle' additionalClasses={classes.bestseller}>{t('best-seller')}</Typography>} />
+        </ListItem>
+        <ListItem disableGutters>
+          <ListItemText primary={<Typography customVariant='body3' colorTextPrimary='primary'>{title}</Typography>} />
+        </ListItem>
+        <ListItem disableGutters>
+          <DrinkDescription 
+            country={country}
+            region={region}
+            zone={zone}
+            wineColor={wineColor}
+            degreeOfSweetness={degreeOfSweetness}
+            grapeSort={grapeSort}
+          />
+        </ListItem>
+        <ListItem disableGutters>
+          <ClientRating size='small' value={valueClientRating} numberReviews={numberClientReviews} />
+        </ListItem>
+        <ListItem disableGutters>
+          <Displacement displacements={displacements} />
+        </ListItem>
       </List>
     </section>
   )
@@ -88,6 +138,7 @@ export const ProductSnippet = React.memo<any>(({
 
 const BadgesLocation = React.memo<any>(() => {
   const classes = useStyles();
+  const { t } = useTranslation();
   const [favorite, setFavorite] = useState(false);
 
   const onClickFavorite = useCallback(() => {
@@ -102,7 +153,7 @@ const BadgesLocation = React.memo<any>(() => {
           <ExpertRating num2={98} badgeBorderColor='#BEE0C9' />
         </div>
         <IconButton onClick={onClickFavorite}>
-          {!favorite ? <FavoriteBorderOutlinedIcon /> : <FavoriteOutlinedIcon color='primary' />}
+          {!favorite ? <FavoriteBorderOutlinedIcon color='primary' titleAccess={t('add-to-favorite')} /> : <FavoriteOutlinedIcon color='secondary' titleAccess={t('added-to-favorite')} />}
         </IconButton>
       </div>
       <div>

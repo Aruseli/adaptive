@@ -50,6 +50,9 @@ const resources = {
       'liter': 'л',
       'best-seller': 'Бестселлер',
       'price-unit': 'шт',
+      'add-to-favorite': 'Кнопка добавленя товара в избранное',
+      'added-to-favorite': 'Товара добавленн в избранное',
+      'displacement--tabs-aria-label': 'Литраж бутылки',
     }
   }
 };
