@@ -21,7 +21,7 @@ const DisplacementsTabs = withStyles({
       backgroundColor: "transparent"
     }
   }
-})((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+})((props: any) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
 const DisplacementTab = withStyles((theme) => ({
   root: {
@@ -42,7 +42,7 @@ const DisplacementTab = withStyles((theme) => ({
     borderRadius: 4,
     backgroundColor: "#F5F5F5"
   },
-}))((props) => <Tab disableRipple {...props} />);
+}))((props: any) => <Tab disableRipple {...props} />);
 
 const useStyles = makeStyles(theme => ({
   displacementTabStyle: {
