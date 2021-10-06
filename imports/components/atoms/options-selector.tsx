@@ -12,9 +12,10 @@ console.log({'os.platform': os.platform()});
 
 const useStyles = makeStyles(theme => ({
   outlinedInputRoot: {
-    maxWidth: '12vw',
+    width: '100%',
+    maxWidth: '25vw',
     maxHeight: 40,
-    appearance: 'menulist-button',
+    overflow: 'hidden',
   }
 }));
 

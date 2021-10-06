@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%', 
     display: 'flex',
     flexDirection: 'column',
-    gap: 12,
+    gap: 24,
 	},
   upperNavigationSection: {
     width: '100%',
@@ -34,11 +34,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  menuItemsTabs: {
-   
-  },
   logoSearchSection: {
     display: 'flex',
+    alignItems: 'center',
     // justifyContent: 'space-between',
     gap: '1.3vw',
   },
@@ -47,18 +45,21 @@ const useStyles = makeStyles(theme => ({
   },
   searchSection: {
     width: '40vw',
-    padding: '2px 4px',
+    maxHeight: 40,
     display: 'flex',
     alignItems: 'center',
-    border: '2px solid #DDDBD8',
+    boxShadow: 'inset 0 0 0px 2px #DDDBD8',
     borderRadius: 8,
   },
   searchInput: {
     marginLeft: theme.spacing(1),
     flex: 1,
+    maxHeight: 40,
   },
   searchButton: {
-    height: '100%',
+    width: 40,
+    height: 40,
+    padding: 0,
   },
   loginFavBinContainer: {
     display: 'flex',
@@ -76,11 +77,17 @@ const useStyles = makeStyles(theme => ({
       '&[class*=disabled]': {
         width: 0
       }
-    }
+    },
+  },
+  tabsFlexContainer: {
+    gap: '1.5vw',
+    alignItems: 'center',
   },
   imgStyle: {
     display: 'block',
-    width: '100%',
+  },
+  languageButton: {
+    padding: '0 16px'
   },
 }));
 
@@ -120,6 +127,7 @@ const UpperNavigationSection = React.memo<any>(({
           onClick={() => alert('FAQ')}>{t('navigation--help-consulting')}</Button>
         <Button
           variant='outlined'
+          className={classes.languageButton}
           onClick={() => alert('Change you favorite language')} aria-labelledby={t('navigation--switch-site-to', {language: 'английский'})}>EN</Button>
       </div>
     </div>
@@ -213,16 +221,17 @@ const DownTabsMenuNavigation = React.memo<any>(() => {
       textColor="primary"
       aria-label={t('navigation--menu-items')}
       className={classes.tabsStyles}
+      classes={{flexContainer: classes.tabsFlexContainer}}
     >
-      <Tab label={t('navigation--menu-item-promotion')} />
-      <Tab label={t('navigation--menu-item-wine')} />
-      <Tab label={t('navigation--menu-item-champagne')} />
-      <Tab label={t('navigation--menu-item-whiskey')} />
-      <Tab label={t('navigation--menu-item-beer-cider')} />
-      <Tab label={t('navigation--menu-item-water-juices')} />
-      <Tab label={t('navigation--menu-item-delicacies')} />
-      <Tab label={t('navigation--menu-item-sets-gifts')} />
-      <Tab label={t('navigation--menu-item-dishes-accessories')} />
+      <Tab textColor='primary' label={t('navigation--menu-item-promotion')} />
+      <Tab textColor='primary' label={t('navigation--menu-item-wine')} icon={<img  src='./wine.svg' alt={t('navigation--menu-item-wine')} />} />
+      <Tab textColor='primary' label={t('navigation--menu-item-champagne')} icon={<img  src='./champagne.svg' alt={t('navigation--menu-item-wine')} />} />
+      <Tab textColor='primary' label={t('navigation--menu-item-whiskey')} icon={<img  src='./whiskey.svg' alt={t('navigation--menu-item-wine')} />} />
+      <Tab textColor='primary' label={t('navigation--menu-item-beer-cider')} icon={<img  src='./beer.svg' alt={t('navigation--menu-item-wine')} />} />
+      <Tab textColor='primary' label={t('navigation--menu-item-water-juices')} />
+      <Tab textColor='primary' label={t('navigation--menu-item-delicacies')} />
+      <Tab textColor='primary' label={t('navigation--menu-item-sets-gifts')} />
+      <Tab textColor='primary' label={t('navigation--menu-item-dishes-accessories')} />
     </Tabs>
   )
 })

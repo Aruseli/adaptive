@@ -1,14 +1,19 @@
+import { Divider } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import classNames from 'classnames';
 import React, { useMemo } from 'react';
 import { useStateSwitcherCatalogView } from './api/use-query-store';
+import { Displacement } from './atoms/displacement';
 import { AppBarDisplayOptionsBar } from './header/app-bar-display-options';
 import { ProductCard } from './product-card/product-card';
 import { ProductSnippet } from './product-snippet/product-snippet';
 
 
 const useStyles = makeStyles(theme => ({
+  navStyles: {
+    marginBottom: 24,
+  },
   productCardStyle: {
     backgroundColor: '#fff',
   },
@@ -22,8 +27,14 @@ const useStyles = makeStyles(theme => ({
     gridTemplateColumns: 'repeat(4, 1fr)',
     gridAutoRows: 'minmax(auto, 648px)',
     columnGap: '1vw',
-    rowGap: '1vh',
+    rowGap: '5vh',
+    // '&::nth-child(4)': {
+
+    // }
   },
+  paddingTop: {
+    paddingTop: '0.75rem',
+  }
 })) 
 
 export const CatalogPlaceholder = React.memo<any>(() => {
@@ -40,28 +51,218 @@ export const CatalogPlaceholder = React.memo<any>(() => {
     }
   ]
 
+  const product=[
+    {
+      id: 'a',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 1,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    },
+    {
+      id: 's',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 5,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    },
+    {
+      id: 'f',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 10,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    },
+    {
+      id: 'q',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 2,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    },
+    {
+      id: 'w',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 23,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    },
+    {
+      id: 't',
+      title: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',	
+      alt: 'Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015',
+      country: 'Италия',
+      region: 'Тоскана',
+      zone: 'Кьянти Коллинези',
+      wineColor: 'Красное',
+      degreeOfSweetness: 'Сухое',
+      grapeSort: 'Каберне Совиньон',
+      valueClientRating: 3.2,
+      numberClientReviews: 11,
+      displacements: [
+        {
+          id: 'a',
+          displacement: 0.2,
+        },
+        {
+          id: 'b',
+          displacement: 0.5,
+        },
+        {
+          id: 'e',
+          displacement: 0.75,
+        },
+        {
+          id: 't',
+          displacement: 1,
+        }
+      ]
+    }
+  ]
+
   const CardComponent = stateSwitcher === 'list' ? ProductCard : ProductSnippet;
 
-  return (<><AppBarDisplayOptionsBar selectedFilterOptions={chips}/>
+  return (<><AppBarDisplayOptionsBar selectedFilterOptions={chips} additionalNavClasses={classes.navStyles} />
+      <Divider style={{marginBottom: 32}} />
       <Box component='section' className={stateSwitcher === 'list' ? classes.catalogListView : classes.catalogGridView}>
-        <CardComponent backgroundColor={false}
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
-        <CardComponent 
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
-        <CardComponent 
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
-        <CardComponent 
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
-        <CardComponent 
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
-        <CardComponent 
-          title='Вино Tenuta di Trecciano, "Terra Rossa" Senesi Riserva DOCG, 2015'	
-        />
+        {product.map(i => (<>
+            <CardComponent backgroundColor={false} key={i.id}
+              additionalproductCardGridContainerClasses={classes.paddingTop}
+              title={i.title}
+              divider
+              alt={i.alt}
+              country={i.country}
+              region={i.region}
+              zone={i.zone}
+              wineColor={i.wineColor}
+              degreeOfSweetness={i.degreeOfSweetness}
+              grapeSort={i.grapeSort}
+              valueClientRating={i.valueClientRating}
+              numberClientReviews={i.numberClientReviews}
+              displacements={i.displacements}
+            />
+          </>
+        ))}
       </Box>
     </>
   )

@@ -59,7 +59,7 @@ export const customTheme = createTheme({
   }, 
   overrides: {
     MuiTypography: {
-      primary: {
+      colorPrimary: {
         color: '#FF2525',
       },
       colorTextPrimary: {
@@ -149,6 +149,7 @@ export const customTheme = createTheme({
     },
     MuiButton: {
       root: {
+        minWidth: 0,
         textTransform: 'none',
         borderRadius: '0.5rem',
         '&$disabled': {
@@ -162,10 +163,7 @@ export const customTheme = createTheme({
         fontFamily,
         fontSize: '1rem',
         fontWeight: 600,
-        lineHeight: '1.5rem',
         letterSpacing: '-0.023rem',
-        paddingTop: '0.5rem',
-        paddingBottom: '0.5rem',
         '&:hover': {
           border: '1px solid #969290',
         },
@@ -176,13 +174,13 @@ export const customTheme = createTheme({
         fontSize: '1rem',
         fontWeight: 700,
         letterSpacing: '-0.023rem',
-        lineHeight: '1.5rem',
         boxShadow: 'none',
         '&:hover': {
           boxShadow: 'none',
         }
       },
       containedPrimary: {
+        maxHeight: 40,
         color: '#fff',
         backgroundColor: '#F55760',
         '&:hover': {
@@ -220,11 +218,61 @@ export const customTheme = createTheme({
         color: '#AFACA9',
       }
     },
+    MuiTabs: {
+      root: {
+        minHeight: 0,
+      },
+    },
     MuiTab: {
       root: {
         minWidth: '0 !important',
+        height: 'max-content',
+        minHeight: 0,
+        '& img' : {
+          marginBottom: `0 !important`,
+        },
+      },
+      wrapper: {
+        flexDirection: 'row',
+        gap: 6,
+        
+      },
+      textColorPrimary: {
+        color: '#2A2425',
+      },
+      labelIcon: {
+        height: 'max-content',
+        minHeight: 0,
+      }
+    },
+    MuiListItemText: {
+      secondary: {
+        color: '#2A2425',
+      }
+    },
+    MuiSvgIcon: {
+      colorPrimary: {
+        color: '#969290',
+        '&:hover': {
+          color: '#FF5E57'
+        },
+      },
+      colorSecondary: {
+        color: '#FF5E57',
       },
     },
+    MuiSelect: {
+      select: {
+        '&:focus': {
+          backgroundColor: '#fff',
+        }
+      },
+      outlined: {
+        '&:hover': {
+          backgroundColor: '#FCF3ED',
+        },
+      },
+    }
 	}
 });
 

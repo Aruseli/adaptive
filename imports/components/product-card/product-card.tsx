@@ -1,9 +1,11 @@
 import { useMediaQuery } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider'; 
 import Button from '@material-ui/core/Button';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
 import React from 'react';
+import cn from 'classnames';
 import { useTranslation } from '../../i18n';
 import { PREFIX } from '../api/env';
 import { SaleBadge } from '../atoms/badge';
@@ -152,45 +154,55 @@ export const ProductCard = React.memo<any>(({
   title,
   reviewText = 'Вкус вина щедрый, хорошо структурированный, с нотами ванили, кофе и дуба, фруктовыми акцентами и долгим, округлым послевкусием.',
   backgroundColorSwitch = false,
+  additionalproductCardGridContainerClasses,
+  divider = false,
+  valueClientRating,
+  numberClientReviews,
 }:{
   title: string;
   reviewText?: string;
   backgroundColorSwitch?: boolean;
+  additionalproductCardGridContainerClasses?: any;
+  divider?: boolean;
+  valueClientRating?: number;
+  numberClientReviews?: number;
 }) => {
   const classes = useStyles();
   const smaller1024 = isSmaller1024();
   const { t } = useTranslation();
   
-  return (<article className={backgroundColorSwitch ? classes.productCardMainContainerNude : classes.productCardMainContainerWhite}>
-        <section className={classes.productCardGridContainer}>
+  return (<><article className={backgroundColorSwitch ? classes.productCardMainContainerNude : classes.productCardMainContainerWhite}>
+          <section className={cn(classes.productCardGridContainer, additionalproductCardGridContainerClasses)}>
 
-        <aside className={classes.productCardGalleryArea}>
-          <ProductImagesGallery 
-            images={images} 
-            saleBadge={
-              <SaleBadge saleBadgeStyle={classes.productCardSaleBadgePositioning} />}
-          />
-        </aside>
+          <aside className={classes.productCardGalleryArea}>
+            <ProductImagesGallery 
+              images={images} 
+              saleBadge={
+                <SaleBadge saleBadgeStyle={classes.productCardSaleBadgePositioning} />}
+            />
+          </aside>
 
-        <ProductInfoAndPrice data={<>
-          <section className={classes.productCardInfoArea}>
-            <section className={classes.productCardInfo}>
-              <Typography variant='body1' className={classes.bestseller}>{t('best-seller')}</Typography>
-              <Typography component='div' variant='h1' color='textPrimary' align='left'>{title}</Typography>
-              <ClientRating value={2.7} />
-             {smaller1024 && <PriceCard />}
+          <ProductInfoAndPrice data={<>
+            <section className={classes.productCardInfoArea}>
+              <section className={classes.productCardInfo}>
+                <Typography variant='body1' className={classes.bestseller}>{t('best-seller')}</Typography>
+                <Typography component='div' variant='h1' color='textPrimary' align='left'>{title}</Typography>
+                <ClientRating value={valueClientRating} size={smaller1024 === true ? 'small' : 'large'} numberReviews={numberClientReviews} />
+              {smaller1024 && <PriceCard />}
+              </section>
+              <section className={classes.expertsRatingBadgeReview}>
+                <ExpertRating rating={4.2} horizontalBadge={smaller1024 === true ? true : false} expertRatingBadgeStyle={classes.expertRatingBadge} />
+                <Typography component='div' variant='body1' align='left' className={classes.reviewText}>{reviewText}</Typography>
+                <Button variant={smaller1024 === true ? 'text' : 'outlined'} className={classes.buttonMoreInfoExpertReview}>{smaller1024 === true ? 'Еще' : 'Развернуть'}</Button>
+              </section>
             </section>
-            <section className={classes.expertsRatingBadgeReview}>
-              <ExpertRating rating={4.2} horizontalBadge={smaller1024 === true ? true : false} expertRatingBadgeStyle={classes.expertRatingBadge} />
-              <Typography component='div' variant='body1' align='left' className={classes.reviewText}>{reviewText}</Typography>
-              <Button variant={smaller1024 === true ? 'text' : 'outlined'} className={classes.buttonMoreInfoExpertReview}>{smaller1024 === true ? 'Еще' : 'Развернуть'}</Button>
+            <section className={classes.productCardPriceArea}>
+              <PriceCard />
             </section>
-          </section>
-          <section className={classes.productCardPriceArea}>
-            <PriceCard />
-          </section>
-        </>}/>
-      </section>
-    </article>
+          </>}/>
+        </section>
+      </article>
+      {divider && <Divider />}
+    </>
   );
 }, _.isEqual);

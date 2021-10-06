@@ -1,4 +1,5 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import cn from 'classnames';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FilterSelectedOptionChip } from '../atoms/filters-selected-option-chip';
@@ -29,12 +30,14 @@ const useStyles = makeStyles(theme => ({
 export const AppBarDisplayOptionsBar = React.memo<any>(({
   children,
   selectedFilterOptions,
+  additionalNavClasses,
 }:{
   children: any;
   selectedFilterOptions?: {
     id: string;
     title: string;
   }[];
+  additionalNavClasses?: any;
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
@@ -43,7 +46,7 @@ export const AppBarDisplayOptionsBar = React.memo<any>(({
     alert('delete '+id);
   }, []);
 
-  return (<nav className={classes.displayOptionsBarArea}>
+  return (<nav className={cn(classes.displayOptionsBarArea, additionalNavClasses)}>
       <OptionsSelector />
       <div className={classes.selectedFiltersOptionsAndViewArea}>
         <div className={classes.selectedFiltersOptionsChips}>
