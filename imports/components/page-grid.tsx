@@ -5,6 +5,7 @@ import React, { ReactNode } from 'react';
 import { useStateDrawerFilter, useStateSwitcherCatalogView } from './api/use-query-store';
 import { CatalogPlaceholder } from './catalog-placeholder';
 import { CheckboxesGroup, drawerWidth } from './filter';
+import { Filter } from './filters/desktop-filter';
 import { Navigation } from './header/navigation';
 import { ProductCard } from './product-card/product-card';
 
@@ -35,6 +36,11 @@ const useStyles = makeStyles(theme => ({
 		position: 'relative',
 		width: '100%',
 	},
+	asideContentArea: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 28,
+	},
 }))
 
 export const MainGrid = React.memo<any>(() => {
@@ -45,7 +51,9 @@ export const MainGrid = React.memo<any>(() => {
 	return (<div className={classes.page}>
 			<Paper component='header' elevation={0} className={classes.header}><Navigation /></Paper>
 			<main className={classes.mainPageArea}>
-				<CheckboxesGroup />
+				<aside className={classes.asideContentArea}>
+					<Filter />
+				</aside>
 				<main className={classes.mainContentArea }>
 					<CatalogPlaceholder />
 				</main>
