@@ -69,13 +69,14 @@ export const customTheme = createTheme({
         color: '#969290',
       },
       h1: {
-        fontSize: '1.75rem',
+        fontSize: 'clamp(1rem, 2vw, 2rem)',
         fontWeight: 700,
         fontFamily: fontFamilyDisplay,
-        lineHeight: '2.25rem',
-        '@media (max-width: 1199px)': {
-          fontSize: '1.5rem',
-        }
+        lineHeight: 'clamp(1rem, 3vw, 2.25rem)',
+        letterSpacing: 0,
+        // '@media (max-width: 1199px)': {
+        //   fontSize: '1.5rem',
+        // }
       },
       h2: {
         fontSize: '2rem',

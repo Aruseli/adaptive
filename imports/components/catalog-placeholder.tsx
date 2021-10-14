@@ -32,8 +32,11 @@ const useStyles = makeStyles(theme => ({
 
     // }
   },
-  paddingTop: {
+  productCardInCatalogList: {
     paddingTop: '0.75rem',
+    paddingLeft: 0,
+    paddingRight: 0,
+    gridTemplateColumns: '1.2fr 1.3fr minmax(max-content, 1fr)',
   }
 })) 
 
@@ -247,7 +250,7 @@ export const CatalogPlaceholder = React.memo<any>(() => {
       <Box component='section' className={stateSwitcher === 'list' ? classes.catalogListView : classes.catalogGridView}>
         {product.map(i => (<>
             <CardComponent backgroundColor={false} key={i.id}
-              additionalproductCardGridContainerClasses={classes.paddingTop}
+              additionalproductCardGridContainerClasses={classes.productCardInCatalogList}
               title={i.title}
               divider
               alt={i.alt}
